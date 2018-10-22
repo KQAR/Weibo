@@ -25,6 +25,9 @@
 		8736B139216F267900ACBC88 /* JRPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B138216F267900ACBC88 /* JRPopMenu.m */; };
 		8736B13C216F49CD00ACBC88 /* JRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B13B216F49CD00ACBC88 /* JRTabBar.m */; };
 		8736B140216F7ECE00ACBC88 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B13F216F7ECE00ACBC88 /* NewFeatureViewController.m */; };
+		87BA467B217D62EB00B20C8D /* JRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467A217D62EB00B20C8D /* JRTextView.m */; };
+		87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467D217D75C800B20C8D /* ComposeToolbar.m */; };
+		87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4680217DA8E700B20C8D /* PhotosView.m */; };
 		87FC6509216DC9170038B159 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FC6508216DC9170038B159 /* AppDelegate.m */; };
 		87FC6511216DC9230038B159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FC6510216DC9230038B159 /* Assets.xcassets */; };
 		87FC6514216DC9230038B159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC6512216DC9230038B159 /* LaunchScreen.storyboard */; };
@@ -78,6 +81,12 @@
 		8736B13B216F49CD00ACBC88 /* JRTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRTabBar.m; sourceTree = "<group>"; };
 		8736B13E216F7ECE00ACBC88 /* NewFeatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		8736B13F216F7ECE00ACBC88 /* NewFeatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		87BA4679217D62EB00B20C8D /* JRTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRTextView.h; sourceTree = "<group>"; };
+		87BA467A217D62EB00B20C8D /* JRTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRTextView.m; sourceTree = "<group>"; };
+		87BA467C217D75C800B20C8D /* ComposeToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeToolbar.h; sourceTree = "<group>"; };
+		87BA467D217D75C800B20C8D /* ComposeToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeToolbar.m; sourceTree = "<group>"; };
+		87BA467F217DA8E700B20C8D /* PhotosView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosView.h; sourceTree = "<group>"; };
+		87BA4680217DA8E700B20C8D /* PhotosView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosView.m; sourceTree = "<group>"; };
 		87FC6504216DC9170038B159 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC6507216DC9170038B159 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87FC6508216DC9170038B159 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -140,6 +149,7 @@
 		8702D48A21787008007FDB8D /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				87BA4678217D62A800B20C8D /* View */,
 				8702D48B2178705D007FDB8D /* ComposeViewController.h */,
 				8702D48C2178705D007FDB8D /* ComposeViewController.m */,
 			);
@@ -211,6 +221,31 @@
 			path = NewFeature;
 			sourceTree = "<group>";
 		};
+		87BA4678217D62A800B20C8D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87BA4679217D62EB00B20C8D /* JRTextView.h */,
+				87BA467A217D62EB00B20C8D /* JRTextView.m */,
+				87BA467C217D75C800B20C8D /* ComposeToolbar.h */,
+				87BA467D217D75C800B20C8D /* ComposeToolbar.m */,
+				87BA467F217DA8E700B20C8D /* PhotosView.h */,
+				87BA4680217DA8E700B20C8D /* PhotosView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87E1ADBB217CCAD2007F4E93 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87FC6510216DC9230038B159 /* Assets.xcassets */,
+				87FC6512216DC9230038B159 /* LaunchScreen.storyboard */,
+				87FC6515216DC9230038B159 /* Info.plist */,
+				87FC6525216DD7B80038B159 /* PrefixHeader.pch */,
+				87FC6516216DC9230038B159 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		87EFFCF521796454005FF86E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,11 +285,7 @@
 				87FC651F216DC98C0038B159 /* Define */,
 				8736B13D216F7E8300ACBC88 /* NewFeature */,
 				8700F709217234E9002C66E3 /* OAuth */,
-				87FC6510216DC9230038B159 /* Assets.xcassets */,
-				87FC6512216DC9230038B159 /* LaunchScreen.storyboard */,
-				87FC6515216DC9230038B159 /* Info.plist */,
-				87FC6525216DD7B80038B159 /* PrefixHeader.pch */,
-				87FC6516216DC9230038B159 /* main.m */,
+				87E1ADBB217CCAD2007F4E93 /* Supporting Files */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -493,6 +524,7 @@
 				8736B139216F267900ACBC88 /* JRPopMenu.m in Sources */,
 				87FC6532216DDF470038B159 /* DiscoverViewController.m in Sources */,
 				87FC652F216DDF340038B159 /* MessageViewController.m in Sources */,
+				87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */,
 				870BF8DF2179E256001482BE /* User.m in Sources */,
 				87FC6540216E02FE0038B159 /* UIBarButtonItem+Extension.m in Sources */,
 				87FC6517216DC9230038B159 /* main.m in Sources */,
@@ -507,8 +539,10 @@
 				870BF8E22179E3F7001482BE /* Status.m in Sources */,
 				8736B132216F136700ACBC88 /* JRSearchBar.m in Sources */,
 				8736B12B216EE41E00ACBC88 /* UIImage+Extension.m in Sources */,
+				87BA467B217D62EB00B20C8D /* JRTextView.m in Sources */,
 				87229DF82178A34600DF2355 /* Account.m in Sources */,
 				8702D48D2178705D007FDB8D /* ComposeViewController.m in Sources */,
+				87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */,
 				870BF8DB2179D140001482BE /* Foundation+Log.m in Sources */,
 				87FC652C216DDF240038B159 /* HomeViewController.m in Sources */,
 			);
@@ -648,8 +682,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78X6FL4YJY;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Weibo/PrefixHeader.pch";
-				INFOPLIST_FILE = Weibo/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Weibo/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "Weibo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,8 +702,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78X6FL4YJY;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Weibo/PrefixHeader.pch";
-				INFOPLIST_FILE = Weibo/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Weibo/Supporting Files/PrefixHeader.pch";
+				INFOPLIST_FILE = "Weibo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
