@@ -24,8 +24,8 @@
 
 
 
-#pragma mark ——————————————————————————————— 第三方 ———————————————————————————————
-#import "AFNetworking.h"
+#pragma mark ——————————————————————————————— 工具类 ———————————————————————————————
+#import "HttpTool.h"
 #import "MBProgressHUD+MJ.h"
 #import "MJExtension.h"
 

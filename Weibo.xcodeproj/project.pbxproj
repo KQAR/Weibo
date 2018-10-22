@@ -28,6 +28,7 @@
 		87BA467B217D62EB00B20C8D /* JRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467A217D62EB00B20C8D /* JRTextView.m */; };
 		87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467D217D75C800B20C8D /* ComposeToolbar.m */; };
 		87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4680217DA8E700B20C8D /* PhotosView.m */; };
+		87BA4687217DF5BD00B20C8D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4686217DF5BD00B20C8D /* HttpTool.m */; };
 		87FC6509216DC9170038B159 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FC6508216DC9170038B159 /* AppDelegate.m */; };
 		87FC6511216DC9230038B159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FC6510216DC9230038B159 /* Assets.xcassets */; };
 		87FC6514216DC9230038B159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC6512216DC9230038B159 /* LaunchScreen.storyboard */; };
@@ -87,6 +88,9 @@
 		87BA467D217D75C800B20C8D /* ComposeToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeToolbar.m; sourceTree = "<group>"; };
 		87BA467F217DA8E700B20C8D /* PhotosView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosView.h; sourceTree = "<group>"; };
 		87BA4680217DA8E700B20C8D /* PhotosView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosView.m; sourceTree = "<group>"; };
+		87BA4684217DF3FB00B20C8D /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		87BA4685217DF5BD00B20C8D /* HttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
+		87BA4686217DF5BD00B20C8D /* HttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
 		87FC6504216DC9170038B159 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC6507216DC9170038B159 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87FC6508216DC9170038B159 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				87229DF421789D7000DF2355 /* ControllerTool.m */,
 				87229DF92178A71100DF2355 /* AccountTool.h */,
 				87229DFA2178A71100DF2355 /* AccountTool.m */,
+				87BA4685217DF5BD00B20C8D /* HttpTool.h */,
+				87BA4686217DF5BD00B20C8D /* HttpTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 				87FC6524216DD6D20038B159 /* FontAndColorMacros.h */,
 				87FC653D216DFD640038B159 /* UtilsMacros.h */,
 				8702D48E21788E31007FDB8D /* URLMacros.h */,
+				87BA4684217DF3FB00B20C8D /* Singleton.h */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -526,6 +533,7 @@
 				87FC652F216DDF340038B159 /* MessageViewController.m in Sources */,
 				87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */,
 				870BF8DF2179E256001482BE /* User.m in Sources */,
+				87BA4687217DF5BD00B20C8D /* HttpTool.m in Sources */,
 				87FC6540216E02FE0038B159 /* UIBarButtonItem+Extension.m in Sources */,
 				87FC6517216DC9230038B159 /* main.m in Sources */,
 				872FDF19217C91B70065C468 /* LoadMoreFooter.m in Sources */,

@@ -179,7 +179,8 @@
     window.rootViewController = tabBarVC;
 }
 
-#pragma mark — UIScrollViewDelegate
+#pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     // 获得页码

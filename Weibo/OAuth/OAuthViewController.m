@@ -92,11 +92,7 @@
 
 - (void)accessTokenWithCode:(NSString *)code
 {
-    // 1.获取请求管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //  解决返回类型不兼容的问题(网络传输协议)
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"client_id"] = AppKey;
     params[@"client_secret"] = AppSecret;
@@ -104,8 +100,8 @@
     params[@"code"] = code;
     params[@"redirect_uri"] = RedirectURI;  // 必须开发平台填写的回调地址一致，一个斜杠都不能少
     
-    // 3.发送POST请求
-    [manager POST:URL_access_token parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
+    // 2.发送POST请求
+    [HttpTool post:URL_access_token params:params success:^(id  _Nonnull responseObject) {
         // 隐藏HUD
         [MBProgressHUD hideHUD];
         
@@ -115,20 +111,16 @@
         // 存储账号模型
         [AccountTool save:account];
         
-        
         // 存储授权成功的账号信息
-//        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//        NSString *filepath = [doc stringByAppendingPathComponent:@"account.plist"];
-        
-//        [responseObject writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        //        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        //        NSString *filepath = [doc stringByAppendingPathComponent:@"account.plist"];
+        //        [responseObject writeToFile:filepath atomically:YES encoding:NSUTF8StringEncoding error:&error];
         //如果对象是NSString、NSDictionary、NSArray、NSData、 NSNumber等类型,就可以使用writeToFile:atomically:⽅法 直接将对象写到属性列表文件中 (把上面的 resposeObject 改成 NSDictionary 类型)
-        
-//        [responseObject writeToFile:filepath atomically:YES];
+        //        [responseObject writeToFile:filepath atomically:YES];
         
         // 切换控制器
         [ControllerTool chooseRootViewController];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError * _Nonnull error) {
         // 隐藏HUD
         [MBProgressHUD hideHUD];
         

@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** string 当前授权用户的UID **/
 @property (nonatomic, copy) NSString *uid;
 
+/** string 用户昵称 **/
+@property (nonatomic, copy) NSString *name;
+
 + (instancetype)accountWithDict:(NSDictionary *)dict;
 @end
 

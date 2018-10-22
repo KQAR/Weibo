@@ -46,30 +46,30 @@
     }
     
     // 网络监控
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    // 网络状态改变时调用
-    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        switch (status) {
-            case AFNetworkReachabilityStatusUnknown:
-            case AFNetworkReachabilityStatusNotReachable:
-                NSLog(@"没有网络（断网）");
-                [MBProgressHUD showError:@"网络异常，请检查网络设置！"];
-                break;
-                
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                NSLog(@"手机自带网络");
-                break;
-                
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                NSLog(@"WIFI");
-                break;
-                
-            default:
-                break;
-        }
-    }];
-    // 开始监控
-    [manager startMonitoring];
+//    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+//    // 网络状态改变时调用
+//    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+//        switch (status) {
+//            case AFNetworkReachabilityStatusUnknown:
+//            case AFNetworkReachabilityStatusNotReachable:
+//                NSLog(@"没有网络（断网）");
+//                [MBProgressHUD showError:@"网络异常，请检查网络设置！"];
+//                break;
+//
+//            case AFNetworkReachabilityStatusReachableViaWWAN:
+//                NSLog(@"手机自带网络");
+//                break;
+//
+//            case AFNetworkReachabilityStatusReachableViaWiFi:
+//                NSLog(@"WIFI");
+//                break;
+//
+//            default:
+//                break;
+//        }
+//    }];
+//    // 开始监控
+//    [manager startMonitoring];
     
     return YES;
 }

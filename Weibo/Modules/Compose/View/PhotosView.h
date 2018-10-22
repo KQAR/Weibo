@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)addImage:(UIImage *)image;
 
+- (NSArray *)images;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,8 @@
 #import "JRTextView.h"
 #import "ComposeToolbar.h"
 #import "PhotosView.h"
+#import "AccountTool.h"
+#import "Account.h"
 
 @interface ComposeViewController () <ComposeToolbarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) JRTextView *textView;
@@ -43,7 +45,7 @@
     [self.textView becomeFirstResponder];
 }
 
-#pragma mark — 设置导航栏内容
+#pragma mark - 设置导航栏内容
 
 - (void)setupNavBar
 {
@@ -54,7 +56,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
-#pragma mark — 设置输入框
+#pragma mark - 设置输入框
 
 - (void)setupTextView
 {
@@ -79,7 +81,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-#pragma mark — 设置键盘上的工具条
+// 移除通知：不然再出进入控制器再次创建会导致通知重复
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - 设置键盘上的工具条
 
 - (void)setupToolbar
 {
@@ -96,7 +104,7 @@
     [self.view addSubview:toolbar];
 }
 
-#pragma mark — 添加显示图片的相册控件
+#pragma mark - 添加显示图片的相册控件
 
 - (void)setupPhotosView
 {
@@ -110,7 +118,7 @@
     self.photosView = photosView;
 }
 
-#pragma mark — 键盘弹出隐藏处理
+#pragma mark - 键盘弹出隐藏处理
 
 - (void)keyboardWillShow:(NSNotification *)note
 {
@@ -137,7 +145,7 @@
     }];
 }
 
-#pragma mark — UITextViewDelegate
+#pragma mark - UITextViewDelegate
 
 // 用户开始拖拽scrollview时候调用
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -145,7 +153,13 @@
     [self.view endEditing:YES];
 }
 
-#pragma mark — ComposeToolbar Delegate
+// 设置当textView的文字长度不为0时可以点击
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.navigationItem.rightBarButtonItem.enabled = textView.text.length != 0;
+}
+
+#pragma mark - ComposeToolbar Delegate
 
 - (void)composeTool:(ComposeToolbar *)toolbar didClickedButton:(ComposeToolbarButtonType)buttonType
 {
@@ -178,7 +192,7 @@
     }
 }
 
-#pragma mark — 工具栏的打开方法
+#pragma mark - 工具栏的打开方法
 
 // 打开相机
 - (void)openCameral
@@ -206,7 +220,7 @@
     
 }
 
-#pragma mark — UIImagePickerControllerDelegate
+#pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info
 {
@@ -219,7 +233,7 @@
     [self.photosView addImage:image];
 }
 
-#pragma mark — 导航栏左右按钮点击方法
+#pragma mark - 导航栏左右按钮点击方法
 
 - (void)cancel
 {
@@ -228,7 +242,57 @@
 
 - (void)send
 {
-    JRLog(@"发微博");
+    // 1.发表微博
+    if (self.photosView.images.count) {
+        [self sendStatusWithImage];
+    } else {
+        [self sendStatusWithoutImage];
+    }
+    
+    // 2.关闭控制器
+    [self dismissViewControllerAnimated:YES completion:nil]; 
+}
+
+- (void)sendStatusWithImage
+{
+//    // 1.获取请求管理者
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    //  解决返回类型不兼容的问题(网络传输协议)
+//    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
+//    // 2.封装请求参数
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    params[@"access_token"] = [AccountTool account].access_token;
+//    params[@"status"] = self.textView.text;
+//
+//    // 3.发送POST请求
+//    [manager POST:URL_Upload parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+//        UIImage *image = [self.photosView.images firstObject];
+//
+//        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+//
+//        // 拼接文件参数
+//        [formData appendPartWithFileData:data name:@"pic" fileName:@"status.jpg" mimeType:@"image/jpeg"];
+//
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *statusDict) {
+//        [MBProgressHUD showSuccess:@"发表成功"];
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        [MBProgressHUD showError:@"发表失败"];
+//    }];
+}
+
+- (void)sendStatusWithoutImage
+{
+    // 1.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [AccountTool account].access_token;
+    params[@"status"] = self.textView.text;
+    
+    // 2.发送POST请求
+    [HttpTool post:URL_Update params:params success:^(id  _Nonnull responseObject) {
+        [MBProgressHUD showSuccess:@"发表成功"];
+    } failure:^(NSError * _Nonnull error) {
+        [MBProgressHUD showError:@"发表失败"];
+    }];
 }
 
 @end

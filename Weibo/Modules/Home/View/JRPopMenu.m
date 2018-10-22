@@ -23,7 +23,9 @@
 @end
 
 @implementation JRPopMenu
+
 #pragma mark - 初始化方法
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -66,12 +68,14 @@
 }
 
 #pragma mark - 内部方法
+
 - (void)coverClick
 {
     [self dismiss];
 }
 
 #pragma mark - 公共方法
+
 - (void)setDimBackground:(BOOL)dimBackground
 {
     _dimBackground = dimBackground;

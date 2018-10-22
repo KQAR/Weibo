@@ -52,4 +52,13 @@
     }
 }
 
+- (NSArray *)images
+{
+    NSMutableArray *array = [NSMutableArray array];
+    for (UIImageView *imageView in self.subviews) {
+        [array addObject:imageView.image];
+    }
+    return array;
+}
+
 @end

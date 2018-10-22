@@ -21,12 +21,13 @@
 @property (nonatomic, strong) NSMutableArray *statuses;
 
 @property (nonatomic, weak) LoadMoreFooter *footer;
-
+@property (nonatomic, weak) JRTitleButton *titleButton;
 @end
 
 @implementation HomeViewController
 
-#pragma mark — 初始化
+#pragma mark - 初始化
+
 - (NSMutableArray *)statuses
 {
     if (_statuses == nil) {
@@ -43,10 +44,13 @@
     
     // 刷新控件
     [self setupRefresh];
+    
+    // 获取用户信息
+    [self setupUserInfo];
 
 }
 
-#pragma mark — 设置导航栏
+#pragma mark - 设置导航栏
 
 - (void)setupNavBar
 {
@@ -56,23 +60,25 @@
     
     //设置导航栏中间的标题按钮
     JRTitleButton *titleButton = [JRTitleButton titleButton];
+    //设置尺寸
+//    titleButton.width = 100;
+    titleButton.height = 35;
     //设置文字和它的颜色、字体
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    NSString *name = [AccountTool account].name;
+    [titleButton setTitle:name ? name : @"首页" forState:UIControlStateNormal];
     [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     titleButton.titleLabel.font = JRNavigationTitleFont;
     //设置图标
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     //设置点击时的背景
     [titleButton setBackgroundImage:[UIImage resizedImage:@"navigationbar_filter_background_highlighted"] forState:UIControlStateHighlighted];
-    //设置尺寸
-    titleButton.width = 100;
-    titleButton.height = 35;
     //监听按钮点击
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
+    self.titleButton = titleButton;
 }
 
-#pragma mark — 设置刷新控件
+#pragma mark - 设置刷新控件
 
 - (void)setupRefresh
 {
@@ -91,22 +97,44 @@
     self.footer = footer;
 }
 
-#pragma mark — 加载微博数据
+#pragma mark - 获取用户信息
+
+- (void)setupUserInfo
+{
+    // 1.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [AccountTool account].access_token;
+    params[@"uid"] = [AccountTool account] .uid;
+    
+    // 2.发送GET请求
+    [HttpTool get:URL_User params:params success:^(id  _Nonnull responseObject) {
+        // 字典转模型
+        User *user = [User mj_objectWithKeyValues:responseObject];
+        
+        // 设置用户的昵称为标题
+        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+        
+        // 存储账号信息
+        Account *account = [AccountTool account];
+        account.name = user.name;
+        [AccountTool save:account];
+    } failure:^(NSError * _Nonnull error) {
+        
+    }];
+}
+
+#pragma mark - 加载微博数据
 
 - (void)refreshControlStateChange:(UIRefreshControl *)refreshControl
 {
     [self loadNewStatuses:refreshControl];
 }
 
-#pragma mark — 加载最新微博数据
+#pragma mark - 加载最新微博数据
 
 - (void)loadNewStatuses:(UIRefreshControl *)refreshControl
 {
-    // 1.获取请求管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //  解决返回类型不兼容的问题(网络传输协议)
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/plain", nil];
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [AccountTool account].access_token;
     Status *firstStatus = [self.statuses firstObject];
@@ -115,11 +143,10 @@
     }
     params[@"count"] = @10;
     
-    // 3.发送GET请求
-    [manager GET:URL_NewStatus parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *resultDict) {
-
+    // 2.发送GET请求
+    [HttpTool get:URL_NewStatus params:params success:^(id  _Nonnull responseObject) {
         // 微博字典数组
-        NSArray *statusDictArray = resultDict[@"statuses"];
+        NSArray *statusDictArray = responseObject[@"statuses"];
         
         // 微博字典数组 ---> 微博模型数组
         NSArray *newStatuses = [Status mj_objectArrayWithKeyValuesArray:statusDictArray];
@@ -137,21 +164,18 @@
         
         // 提示用户刷出的微博数量
         [self showNewStatusesCount:newStatuses.count];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError * _Nonnull error) {
         JRLog(@"请求失败---%@", error);
         // 刷新控件停止刷新
         [refreshControl endRefreshing];
     }];
 }
 
-#pragma mark — 加载更多以前的微博数据
+#pragma mark - 加载更多以前的微博数据
 
 - (void)loadMoreStatuses
 {
-    // 1.获得请求管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [AccountTool account].access_token;
     Status *lastStatus =  [self.statuses lastObject];
@@ -160,29 +184,29 @@
         params[@"max_id"] = @([lastStatus.idstr longLongValue] - 1);
     }
     
-    // 3.发送GET请求
-    [manager GET:URL_NewStatus parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *resultDict) {
-         // 微博字典数组
-         NSArray *statusDictArray = resultDict[@"statuses"];
-         // 微博字典数组 ---> 微博模型数组
-         NSArray *newStatuses = [Status mj_objectArrayWithKeyValuesArray:statusDictArray];
-         
-         // 将新数据插入到旧数据的最后面
-         [self.statuses addObjectsFromArray:newStatuses];
-         
-         // 重新刷新表格
-         [self.tableView reloadData];
-         
-         // 让刷新控件停止刷新（恢复默认的状态）
-         [self.footer endRefreshing];
-      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         NSLog(@"请求失败--%@", error);
-         // 让刷新控件停止刷新（恢复默认的状态）
-         [self.footer endRefreshing];
-     }];
+    // 2.发送GET请求
+    [HttpTool get:URL_NewStatus params:params success:^(id  _Nonnull responseObject) {
+        // 微博字典数组
+        NSArray *statusDictArray = responseObject[@"statuses"];
+        // 微博字典数组 ---> 微博模型数组
+        NSArray *newStatuses = [Status mj_objectArrayWithKeyValuesArray:statusDictArray];
+        
+        // 将新数据插入到旧数据的最后面
+        [self.statuses addObjectsFromArray:newStatuses];
+        
+        // 重新刷新表格
+        [self.tableView reloadData];
+        
+        // 让刷新控件停止刷新（恢复默认的状态）
+        [self.footer endRefreshing];
+    } failure:^(NSError * _Nonnull error) {
+        NSLog(@"请求失败--%@", error);
+        // 让刷新控件停止刷新（恢复默认的状态）
+        [self.footer endRefreshing];
+    }];
 }
 
-#pragma mark — 提示用户刷出的微博数量
+#pragma mark - 提示用户刷出的微博数量
 
 - (void)showNewStatusesCount:(NSInteger)count
 {
@@ -233,7 +257,7 @@
     }];
 }
 
-#pragma mark — 导航栏标题点击方法
+#pragma mark - 导航栏标题点击方法
 
 - (void)titleClick:(UIButton *)titleButton
 {
@@ -298,7 +322,7 @@
     return cell;
 }
 
-#pragma mark — tableView Delegate
+#pragma mark - tableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -86,7 +86,8 @@
     [self addChildViewController:nav];
 }
 
-#pragma mark — JRTabBarDelegate
+#pragma mark - JRTabBarDelegate
+
 - (void)tabBarDidClickedPlusButton:(JRTabBar *)tabBar
 {
     // 弹出发微博控制器
