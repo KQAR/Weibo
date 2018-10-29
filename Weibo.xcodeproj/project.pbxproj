@@ -36,6 +36,8 @@
 		8736B140216F7ECE00ACBC88 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B13F216F7ECE00ACBC88 /* NewFeatureViewController.m */; };
 		877E1A7521873C160089BEE9 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7421873C160089BEE9 /* BaseManager.m */; };
 		877E1A7821873EE70089BEE9 /* BaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7721873EE70089BEE9 /* BaseParam.m */; };
+		877E1A7B218743D00089BEE9 /* UnreadCountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7A218743D00089BEE9 /* UnreadCountParam.m */; };
+		877E1A7E218743E80089BEE9 /* UnreadCountResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7D218743E80089BEE9 /* UnreadCountResult.m */; };
 		87BA467B217D62EB00B20C8D /* JRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467A217D62EB00B20C8D /* JRTextView.m */; };
 		87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467D217D75C800B20C8D /* ComposeToolbar.m */; };
 		87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4680217DA8E700B20C8D /* PhotosView.m */; };
@@ -116,6 +118,10 @@
 		877E1A7421873C160089BEE9 /* BaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
 		877E1A7621873EE70089BEE9 /* BaseParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseParam.h; sourceTree = "<group>"; };
 		877E1A7721873EE70089BEE9 /* BaseParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseParam.m; sourceTree = "<group>"; };
+		877E1A79218743D00089BEE9 /* UnreadCountParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnreadCountParam.h; sourceTree = "<group>"; };
+		877E1A7A218743D00089BEE9 /* UnreadCountParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnreadCountParam.m; sourceTree = "<group>"; };
+		877E1A7C218743E80089BEE9 /* UnreadCountResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnreadCountResult.h; sourceTree = "<group>"; };
+		877E1A7D218743E80089BEE9 /* UnreadCountResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnreadCountResult.m; sourceTree = "<group>"; };
 		87BA4679217D62EB00B20C8D /* JRTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRTextView.h; sourceTree = "<group>"; };
 		87BA467A217D62EB00B20C8D /* JRTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRTextView.m; sourceTree = "<group>"; };
 		87BA467C217D75C800B20C8D /* ComposeToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeToolbar.h; sourceTree = "<group>"; };
@@ -341,12 +347,16 @@
 		87EFFCF521796454005FF86E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				877E1A7621873EE70089BEE9 /* BaseParam.h */,
+				877E1A7721873EE70089BEE9 /* BaseParam.m */,
 				87229DF62178A34600DF2355 /* Account.h */,
 				87229DF72178A34600DF2355 /* Account.m */,
 				8707585C217ED0B2003F9052 /* AccessTokenParam.h */,
 				8707585D217ED0B2003F9052 /* AccessTokenParam.m */,
-				877E1A7621873EE70089BEE9 /* BaseParam.h */,
-				877E1A7721873EE70089BEE9 /* BaseParam.m */,
+				877E1A79218743D00089BEE9 /* UnreadCountParam.h */,
+				877E1A7A218743D00089BEE9 /* UnreadCountParam.m */,
+				877E1A7C218743E80089BEE9 /* UnreadCountResult.h */,
+				877E1A7D218743E80089BEE9 /* UnreadCountResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -630,6 +640,7 @@
 				87FC652F216DDF340038B159 /* MessageViewController.m in Sources */,
 				87075854217ECEF8003F9052 /* UserManager.m in Sources */,
 				87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */,
+				877E1A7E218743E80089BEE9 /* UnreadCountResult.m in Sources */,
 				870BF8DF2179E256001482BE /* User.m in Sources */,
 				87BA4687217DF5BD00B20C8D /* HttpTool.m in Sources */,
 				87FC6540216E02FE0038B159 /* UIBarButtonItem+Extension.m in Sources */,
@@ -644,6 +655,7 @@
 				8736B140216F7ECE00ACBC88 /* NewFeatureViewController.m in Sources */,
 				87229DF521789D7000DF2355 /* ControllerTool.m in Sources */,
 				87FC6535216DDF570038B159 /* ProfileViewController.m in Sources */,
+				877E1A7B218743D00089BEE9 /* UnreadCountParam.m in Sources */,
 				87FC6509216DC9170038B159 /* AppDelegate.m in Sources */,
 				870BF8E22179E3F7001482BE /* Status.m in Sources */,
 				8736B132216F136700ACBC88 /* JRSearchBar.m in Sources */,

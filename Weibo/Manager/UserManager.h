@@ -10,6 +10,8 @@
 #import "BaseManager.h"
 #import "UserInfoParam.h"
 #import "UserInfoResult.h"
+#import "UnreadCountParam.h"
+#import "UnreadCountResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)userInfoWithParam:(UserInfoParam *)param
                   success:(void (^)(UserInfoResult *result))success
                   failure:(void (^)(NSError *error))failure;
+
++ (void)unreadCountWithParam:(UnreadCountParam *)param
+                     success:(void (^)(UnreadCountResult *result))success
+                     failure:(void (^)(NSError *error))failure;
 
 @end
 

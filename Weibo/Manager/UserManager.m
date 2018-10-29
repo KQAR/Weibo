@@ -17,4 +17,11 @@
     [self getWithUrl:URL_User param:param resultClass:[UserInfoResult class] success:success failure:failure];
 }
 
++ (void)unreadCountWithParam:(UnreadCountParam *)param
+                     success:(void (^)(UnreadCountResult *))success
+                     failure:(void (^)(NSError *))failure
+{
+    [self getWithUrl:URL_UnreadCount param:param resultClass:[UnreadCountResult class] success:success failure:failure];
+}
+
 @end

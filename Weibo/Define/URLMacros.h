@@ -34,4 +34,7 @@
 //  获取用户信息
 #define URL_User @"https://api.weibo.com/2/users/show.json"
 
+//  获取用户未读数
+#define URL_UnreadCount @"https://rm.api.weibo.com/2/remind/unread_count.json"
+
 #endif /* URLMacros_h */
