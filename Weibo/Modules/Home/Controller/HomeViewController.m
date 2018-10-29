@@ -9,12 +9,12 @@
 #import "HomeViewController.h"
 #import "JRTitleButton.h"
 #import "JRPopMenu.h"
-#import "AccountTool.h"
+#import "AccountManager.h"
 #import "Account.h"
 #import "UIImageView+WebCache.h"
-#import "Status.h"
-#import "User.h"
 #import "LoadMoreFooter.h"
+#import "StatusManager.h"
+#import "UserManager.h"
 
 @interface HomeViewController () <JRPopMenuDelegate>
 /** 微博数组 **/
@@ -64,7 +64,7 @@
 //    titleButton.width = 100;
     titleButton.height = 35;
     //设置文字和它的颜色、字体
-    NSString *name = [AccountTool account].name;
+    NSString *name = [AccountManager account].name;
     [titleButton setTitle:name ? name : @"首页" forState:UIControlStateNormal];
     [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     titleButton.titleLabel.font = JRNavigationTitleFont;
@@ -94,7 +94,7 @@
     // 5.加载上拉刷新控件
     LoadMoreFooter *footer = [LoadMoreFooter footer];
     self.tableView.tableFooterView = footer;
-    self.footer = footer;
+    self.footer = footer; 
 }
 
 #pragma mark - 获取用户信息
@@ -102,25 +102,22 @@
 - (void)setupUserInfo
 {
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [AccountTool account].access_token;
-    params[@"uid"] = [AccountTool account] .uid;
+    UserInfoParam *param = [UserInfoParam param];
+    param.uid = [AccountManager account].uid;
     
-    // 2.发送GET请求
-    [HttpTool get:URL_User params:params success:^(id  _Nonnull responseObject) {
-        // 字典转模型
-        User *user = [User mj_objectWithKeyValues:responseObject];
-        
+    // 2.加载用户信息 
+    [UserManager userInfoWithParam:param success:^(UserInfoResult * _Nonnull result) {
         // 设置用户的昵称为标题
-        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+        [self.titleButton setTitle:result.name forState:UIControlStateNormal];
         
         // 存储账号信息
-        Account *account = [AccountTool account];
-        account.name = user.name;
-        [AccountTool save:account];
+        Account *account = [AccountManager account];
+        account.name = result.name;
+        [AccountManager save:account];
     } failure:^(NSError * _Nonnull error) {
-        
+        NSLog(@"用户信息请求失败-------%@", error);
     }];
+    
 }
 
 #pragma mark - 加载微博数据
@@ -135,21 +132,16 @@
 - (void)loadNewStatuses:(UIRefreshControl *)refreshControl
 {
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [AccountTool account].access_token;
+    HomeStatusesParam *param = [HomeStatusesParam param];
     Status *firstStatus = [self.statuses firstObject];
     if (firstStatus) {
-        params[@"since_id"] = firstStatus.idstr;
+        param.since_id = @([firstStatus.idstr longLongValue]);
     }
-    params[@"count"] = @10;
     
-    // 2.发送GET请求
-    [HttpTool get:URL_NewStatus params:params success:^(id  _Nonnull responseObject) {
-        // 微博字典数组
-        NSArray *statusDictArray = responseObject[@"statuses"];
-        
-        // 微博字典数组 ---> 微博模型数组
-        NSArray *newStatuses = [Status mj_objectArrayWithKeyValuesArray:statusDictArray];
+    // 2.加载微博数据
+    [StatusManager homeStatusesWithParam:param success:^(HomeStatusesResult * _Nonnull result) {
+        // 获得最新微博字典数组
+        NSArray *newStatuses = result.statuses;
         
         // 将新数据插入到旧数据的前面
         NSRange range = NSMakeRange(0, newStatuses.count);
@@ -175,21 +167,18 @@
 
 - (void)loadMoreStatuses
 {
-    // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [AccountTool account].access_token;
+    // 1.封装请求参数、
+    HomeStatusesParam *param = [HomeStatusesParam param];
     Status *lastStatus =  [self.statuses lastObject];
     if (lastStatus) {
         // max_id    false    int64    若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
-        params[@"max_id"] = @([lastStatus.idstr longLongValue] - 1);
+        param.max_id = @([lastStatus.idstr longLongValue] - 1);
     }
     
-    // 2.发送GET请求
-    [HttpTool get:URL_NewStatus params:params success:^(id  _Nonnull responseObject) {
-        // 微博字典数组
-        NSArray *statusDictArray = responseObject[@"statuses"];
+    // 2.加载微博数据
+    [StatusManager homeStatusesWithParam:param success:^(HomeStatusesResult * _Nonnull result) {
         // 微博字典数组 ---> 微博模型数组
-        NSArray *newStatuses = [Status mj_objectArrayWithKeyValuesArray:statusDictArray];
+        NSArray *newStatuses = result.statuses;
         
         // 将新数据插入到旧数据的最后面
         [self.statuses addObjectsFromArray:newStatuses];

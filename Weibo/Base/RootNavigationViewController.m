@@ -24,10 +24,10 @@
  */
 + (void)initialize
 {
-    //设置导航栏主题
-    [self setupNavgationBarTheme];
-    //设置导航栏按钮主题
-    [self setupBarButtonItemTheme];
+//    //设置导航栏主题
+//    [self setupNavgationBarTheme];
+//    //设置导航栏按钮主题
+//    [self setupBarButtonItemTheme];
 }
 
 + (void)setupNavgationBarTheme

@@ -11,7 +11,7 @@
 
 @implementation Status
 
-- (NSDictionary *)objectClassInArray
++ (NSDictionary *)mj_objectClassInArray
 {
     return @{@"pic_ids" : [Photo class]};
 }

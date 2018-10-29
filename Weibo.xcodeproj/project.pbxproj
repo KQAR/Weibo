@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		8700F70C21723519002C66E3 /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8700F70B21723519002C66E3 /* OAuthViewController.m */; };
 		8702D48D2178705D007FDB8D /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8702D48C2178705D007FDB8D /* ComposeViewController.m */; };
+		8707583E217EB453003F9052 /* StatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8707583D217EB453003F9052 /* StatusManager.m */; };
+		87075845217EC96D003F9052 /* HomeStatusesParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 87075844217EC96D003F9052 /* HomeStatusesParam.m */; };
+		87075848217EC9C2003F9052 /* HomeStatusesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 87075847217EC9C2003F9052 /* HomeStatusesResult.m */; };
+		8707584B217ECA47003F9052 /* UserInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 8707584A217ECA47003F9052 /* UserInfoParam.m */; };
+		8707584E217ECA74003F9052 /* UserInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8707584D217ECA74003F9052 /* UserInfoResult.m */; };
+		87075854217ECEF8003F9052 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87075853217ECEF8003F9052 /* UserManager.m */; };
+		87075858217ED03D003F9052 /* SendStatusParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 87075857217ED03D003F9052 /* SendStatusParam.m */; };
+		8707585B217ED056003F9052 /* SendStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 8707585A217ED056003F9052 /* SendStatusResult.m */; };
+		8707585E217ED0B2003F9052 /* AccessTokenParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 8707585D217ED0B2003F9052 /* AccessTokenParam.m */; };
 		870BF8DB2179D140001482BE /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BF8DA2179D13F001482BE /* Foundation+Log.m */; };
 		870BF8DF2179E256001482BE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BF8DE2179E256001482BE /* User.m */; };
 		870BF8E22179E3F7001482BE /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BF8E12179E3F7001482BE /* Status.m */; };
@@ -16,7 +25,7 @@
 		871896072173122900AF0F99 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 871896062173122900AF0F99 /* MBProgressHUD+MJ.m */; };
 		87229DF521789D7000DF2355 /* ControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DF421789D7000DF2355 /* ControllerTool.m */; };
 		87229DF82178A34600DF2355 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DF72178A34600DF2355 /* Account.m */; };
-		87229DFB2178A71100DF2355 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DFA2178A71100DF2355 /* AccountTool.m */; };
+		87229DFB2178A71100DF2355 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DFA2178A71100DF2355 /* AccountManager.m */; };
 		872FDF19217C91B70065C468 /* LoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 872FDF18217C91B70065C468 /* LoadMoreFooter.m */; };
 		872FDF1B217C91F10065C468 /* LoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872FDF1A217C91F10065C468 /* LoadMoreFooter.xib */; };
 		8736B12B216EE41E00ACBC88 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B12A216EE41E00ACBC88 /* UIImage+Extension.m */; };
@@ -25,10 +34,13 @@
 		8736B139216F267900ACBC88 /* JRPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B138216F267900ACBC88 /* JRPopMenu.m */; };
 		8736B13C216F49CD00ACBC88 /* JRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B13B216F49CD00ACBC88 /* JRTabBar.m */; };
 		8736B140216F7ECE00ACBC88 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B13F216F7ECE00ACBC88 /* NewFeatureViewController.m */; };
+		877E1A7521873C160089BEE9 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7421873C160089BEE9 /* BaseManager.m */; };
+		877E1A7821873EE70089BEE9 /* BaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7721873EE70089BEE9 /* BaseParam.m */; };
 		87BA467B217D62EB00B20C8D /* JRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467A217D62EB00B20C8D /* JRTextView.m */; };
 		87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA467D217D75C800B20C8D /* ComposeToolbar.m */; };
 		87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4680217DA8E700B20C8D /* PhotosView.m */; };
 		87BA4687217DF5BD00B20C8D /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4686217DF5BD00B20C8D /* HttpTool.m */; };
+		87BA468A217E001500B20C8D /* AppDelegate+Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4689217E001500B20C8D /* AppDelegate+Service.m */; };
 		87FC6509216DC9170038B159 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FC6508216DC9170038B159 /* AppDelegate.m */; };
 		87FC6511216DC9230038B159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FC6510216DC9230038B159 /* Assets.xcassets */; };
 		87FC6514216DC9230038B159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87FC6512216DC9230038B159 /* LaunchScreen.storyboard */; };
@@ -52,6 +64,24 @@
 		8702D48B2178705D007FDB8D /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		8702D48C2178705D007FDB8D /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		8702D48E21788E31007FDB8D /* URLMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
+		8707583C217EB453003F9052 /* StatusManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusManager.h; sourceTree = "<group>"; };
+		8707583D217EB453003F9052 /* StatusManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusManager.m; sourceTree = "<group>"; };
+		87075843217EC96D003F9052 /* HomeStatusesParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStatusesParam.h; sourceTree = "<group>"; };
+		87075844217EC96D003F9052 /* HomeStatusesParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStatusesParam.m; sourceTree = "<group>"; };
+		87075846217EC9C2003F9052 /* HomeStatusesResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStatusesResult.h; sourceTree = "<group>"; };
+		87075847217EC9C2003F9052 /* HomeStatusesResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStatusesResult.m; sourceTree = "<group>"; };
+		87075849217ECA47003F9052 /* UserInfoParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoParam.h; sourceTree = "<group>"; };
+		8707584A217ECA47003F9052 /* UserInfoParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoParam.m; sourceTree = "<group>"; };
+		8707584C217ECA74003F9052 /* UserInfoResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoResult.h; sourceTree = "<group>"; };
+		8707584D217ECA74003F9052 /* UserInfoResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoResult.m; sourceTree = "<group>"; };
+		87075852217ECEF8003F9052 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		87075853217ECEF8003F9052 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
+		87075856217ED03D003F9052 /* SendStatusParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendStatusParam.h; sourceTree = "<group>"; };
+		87075857217ED03D003F9052 /* SendStatusParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendStatusParam.m; sourceTree = "<group>"; };
+		87075859217ED056003F9052 /* SendStatusResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendStatusResult.h; sourceTree = "<group>"; };
+		8707585A217ED056003F9052 /* SendStatusResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendStatusResult.m; sourceTree = "<group>"; };
+		8707585C217ED0B2003F9052 /* AccessTokenParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessTokenParam.h; sourceTree = "<group>"; };
+		8707585D217ED0B2003F9052 /* AccessTokenParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessTokenParam.m; sourceTree = "<group>"; };
 		870BF8DA2179D13F001482BE /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		870BF8DD2179E256001482BE /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		870BF8DE2179E256001482BE /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -65,8 +95,8 @@
 		87229DF421789D7000DF2355 /* ControllerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerTool.m; sourceTree = "<group>"; };
 		87229DF62178A34600DF2355 /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		87229DF72178A34600DF2355 /* Account.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
-		87229DF92178A71100DF2355 /* AccountTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountTool.h; sourceTree = "<group>"; };
-		87229DFA2178A71100DF2355 /* AccountTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
+		87229DF92178A71100DF2355 /* AccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
+		87229DFA2178A71100DF2355 /* AccountManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		872FDF17217C91B70065C468 /* LoadMoreFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadMoreFooter.h; sourceTree = "<group>"; };
 		872FDF18217C91B70065C468 /* LoadMoreFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadMoreFooter.m; sourceTree = "<group>"; };
 		872FDF1A217C91F10065C468 /* LoadMoreFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreFooter.xib; sourceTree = "<group>"; };
@@ -82,6 +112,10 @@
 		8736B13B216F49CD00ACBC88 /* JRTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRTabBar.m; sourceTree = "<group>"; };
 		8736B13E216F7ECE00ACBC88 /* NewFeatureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		8736B13F216F7ECE00ACBC88 /* NewFeatureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		877E1A7321873C160089BEE9 /* BaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
+		877E1A7421873C160089BEE9 /* BaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
+		877E1A7621873EE70089BEE9 /* BaseParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseParam.h; sourceTree = "<group>"; };
+		877E1A7721873EE70089BEE9 /* BaseParam.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseParam.m; sourceTree = "<group>"; };
 		87BA4679217D62EB00B20C8D /* JRTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRTextView.h; sourceTree = "<group>"; };
 		87BA467A217D62EB00B20C8D /* JRTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JRTextView.m; sourceTree = "<group>"; };
 		87BA467C217D75C800B20C8D /* ComposeToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeToolbar.h; sourceTree = "<group>"; };
@@ -91,6 +125,8 @@
 		87BA4684217DF3FB00B20C8D /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		87BA4685217DF5BD00B20C8D /* HttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		87BA4686217DF5BD00B20C8D /* HttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
+		87BA4688217E001500B20C8D /* AppDelegate+Service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Service.h"; sourceTree = "<group>"; };
+		87BA4689217E001500B20C8D /* AppDelegate+Service.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Service.m"; sourceTree = "<group>"; };
 		87FC6504216DC9170038B159 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FC6507216DC9170038B159 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		87FC6508216DC9170038B159 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -153,11 +189,58 @@
 		8702D48A21787008007FDB8D /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				87075855217ED00A003F9052 /* Model */,
 				87BA4678217D62A800B20C8D /* View */,
 				8702D48B2178705D007FDB8D /* ComposeViewController.h */,
 				8702D48C2178705D007FDB8D /* ComposeViewController.m */,
 			);
 			path = Compose;
+			sourceTree = "<group>";
+		};
+		87075842217EC838003F9052 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				877E1A7321873C160089BEE9 /* BaseManager.h */,
+				877E1A7421873C160089BEE9 /* BaseManager.m */,
+				87229DF321789D7000DF2355 /* ControllerTool.h */,
+				87229DF421789D7000DF2355 /* ControllerTool.m */,
+				87229DF92178A71100DF2355 /* AccountManager.h */,
+				87229DFA2178A71100DF2355 /* AccountManager.m */,
+				8707583C217EB453003F9052 /* StatusManager.h */,
+				8707583D217EB453003F9052 /* StatusManager.m */,
+				87075852217ECEF8003F9052 /* UserManager.h */,
+				87075853217ECEF8003F9052 /* UserManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8707584F217ECB1B003F9052 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				87BA4685217DF5BD00B20C8D /* HttpTool.h */,
+				87BA4686217DF5BD00B20C8D /* HttpTool.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		87075851217ECCA5003F9052 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				87FC652A216DDF240038B159 /* HomeViewController.h */,
+				87FC652B216DDF240038B159 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		87075855217ED00A003F9052 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				87075856217ED03D003F9052 /* SendStatusParam.h */,
+				87075857217ED03D003F9052 /* SendStatusParam.m */,
+				87075859217ED056003F9052 /* SendStatusResult.h */,
+				8707585A217ED056003F9052 /* SendStatusResult.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		870BF8DC2179E226001482BE /* Model */ = {
@@ -169,6 +252,14 @@
 				870BF8E12179E3F7001482BE /* Status.m */,
 				870BF8E32179FDCF001482BE /* Photo.h */,
 				870BF8E42179FDCF001482BE /* Photo.m */,
+				87075843217EC96D003F9052 /* HomeStatusesParam.h */,
+				87075844217EC96D003F9052 /* HomeStatusesParam.m */,
+				87075846217EC9C2003F9052 /* HomeStatusesResult.h */,
+				87075847217EC9C2003F9052 /* HomeStatusesResult.m */,
+				87075849217ECA47003F9052 /* UserInfoParam.h */,
+				8707584A217ECA47003F9052 /* UserInfoParam.m */,
+				8707584C217ECA74003F9052 /* UserInfoResult.h */,
+				8707584D217ECA74003F9052 /* UserInfoResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,12 +276,7 @@
 		87229DF221789D2600DF2355 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				87229DF321789D7000DF2355 /* ControllerTool.h */,
-				87229DF421789D7000DF2355 /* ControllerTool.m */,
-				87229DF92178A71100DF2355 /* AccountTool.h */,
-				87229DFA2178A71100DF2355 /* AccountTool.m */,
-				87BA4685217DF5BD00B20C8D /* HttpTool.h */,
-				87BA4686217DF5BD00B20C8D /* HttpTool.m */,
+				8707584F217ECB1B003F9052 /* Network */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -257,6 +343,10 @@
 			children = (
 				87229DF62178A34600DF2355 /* Account.h */,
 				87229DF72178A34600DF2355 /* Account.m */,
+				8707585C217ED0B2003F9052 /* AccessTokenParam.h */,
+				8707585D217ED0B2003F9052 /* AccessTokenParam.m */,
+				877E1A7621873EE70089BEE9 /* BaseParam.h */,
+				877E1A7721873EE70089BEE9 /* BaseParam.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,6 +375,7 @@
 				87FC651D216DC9760038B159 /* AppDelegate */,
 				87FC6520216DC9A00038B159 /* Modules */,
 				87FC651E216DC9850038B159 /* Base */,
+				87075842217EC838003F9052 /* Manager */,
 				87229DF221789D2600DF2355 /* Tool */,
 				871896042173120400AF0F99 /* Utils */,
 				87FC6539216DFB470038B159 /* Category */,
@@ -301,6 +392,8 @@
 			children = (
 				87FC6507216DC9170038B159 /* AppDelegate.h */,
 				87FC6508216DC9170038B159 /* AppDelegate.m */,
+				87BA4688217E001500B20C8D /* AppDelegate+Service.h */,
+				87BA4689217E001500B20C8D /* AppDelegate+Service.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -372,10 +465,9 @@
 		87FC6529216DDF010038B159 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				870BF8DC2179E226001482BE /* Model */,
 				8736B133216F19C700ACBC88 /* View */,
-				87FC652A216DDF240038B159 /* HomeViewController.h */,
-				87FC652B216DDF240038B159 /* HomeViewController.m */,
+				87075851217ECCA5003F9052 /* Controller */,
+				870BF8DC2179E226001482BE /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -524,20 +616,29 @@
 			files = (
 				871896072173122900AF0F99 /* MBProgressHUD+MJ.m in Sources */,
 				87FC653C216DFB6C0038B159 /* UIView+Extension.m in Sources */,
+				8707583E217EB453003F9052 /* StatusManager.m in Sources */,
+				8707585E217ED0B2003F9052 /* AccessTokenParam.m in Sources */,
 				8700F70C21723519002C66E3 /* OAuthViewController.m in Sources */,
-				87229DFB2178A71100DF2355 /* AccountTool.m in Sources */,
+				87229DFB2178A71100DF2355 /* AccountManager.m in Sources */,
 				870BF8E52179FDCF001482BE /* Photo.m in Sources */,
 				87FC6523216DCA860038B159 /* RootTabBarController.m in Sources */,
 				8736B139216F267900ACBC88 /* JRPopMenu.m in Sources */,
 				87FC6532216DDF470038B159 /* DiscoverViewController.m in Sources */,
+				87BA468A217E001500B20C8D /* AppDelegate+Service.m in Sources */,
+				87075845217EC96D003F9052 /* HomeStatusesParam.m in Sources */,
+				87075848217EC9C2003F9052 /* HomeStatusesResult.m in Sources */,
 				87FC652F216DDF340038B159 /* MessageViewController.m in Sources */,
+				87075854217ECEF8003F9052 /* UserManager.m in Sources */,
 				87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */,
 				870BF8DF2179E256001482BE /* User.m in Sources */,
 				87BA4687217DF5BD00B20C8D /* HttpTool.m in Sources */,
 				87FC6540216E02FE0038B159 /* UIBarButtonItem+Extension.m in Sources */,
+				87075858217ED03D003F9052 /* SendStatusParam.m in Sources */,
 				87FC6517216DC9230038B159 /* main.m in Sources */,
+				8707584B217ECA47003F9052 /* UserInfoParam.m in Sources */,
 				872FDF19217C91B70065C468 /* LoadMoreFooter.m in Sources */,
 				8736B13C216F49CD00ACBC88 /* JRTabBar.m in Sources */,
+				877E1A7521873C160089BEE9 /* BaseManager.m in Sources */,
 				8736B136216F19E800ACBC88 /* JRTitleButton.m in Sources */,
 				87FC6538216DE0CD0038B159 /* RootNavigationViewController.m in Sources */,
 				8736B140216F7ECE00ACBC88 /* NewFeatureViewController.m in Sources */,
@@ -549,9 +650,12 @@
 				8736B12B216EE41E00ACBC88 /* UIImage+Extension.m in Sources */,
 				87BA467B217D62EB00B20C8D /* JRTextView.m in Sources */,
 				87229DF82178A34600DF2355 /* Account.m in Sources */,
+				8707584E217ECA74003F9052 /* UserInfoResult.m in Sources */,
+				877E1A7821873EE70089BEE9 /* BaseParam.m in Sources */,
 				8702D48D2178705D007FDB8D /* ComposeViewController.m in Sources */,
 				87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */,
 				870BF8DB2179D140001482BE /* Foundation+Log.m in Sources */,
+				8707585B217ED056003F9052 /* SendStatusResult.m in Sources */,
 				87FC652C216DDF240038B159 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

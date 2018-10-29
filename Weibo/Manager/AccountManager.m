@@ -8,14 +8,14 @@
 
 #define AccountFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.data"]
 
-#import "AccountTool.h"
+#import "AccountManager.h"
 #import "Account.h"
 
-@interface AccountTool()
+@interface AccountManager()
 @property (nonatomic, strong) NSData *data;
 @end
 
-@implementation AccountTool
+@implementation AccountManager
 
 + (void)save:(Account *)account
 {
@@ -33,12 +33,17 @@
     Account *account = [NSKeyedUnarchiver unarchiveObjectWithFile:AccountFilePath];
 //    return [NSKeyedUnarchiver unarchivedObjectOfClass:[NSObject class] fromData:self.data error:nil];
     
-    // 判断账号是否过期 
-    NSDate *now = [NSDate date];
-    if ([now compare:account.expires_time] != NSOrderedAscending) {
-        account = nil;
-    }
+    // 判断账号是否过期  
+//    NSDate *now = [NSDate date];
+//    if ([now compare:account.expires_time] != NSOrderedAscending) {
+//        account = nil;
+//    }
     return account;
+}
+
++ (void)accessTokenWithParam:(AccessTokenParam *)param success:(void (^)(Account *))success failure:(void (^)(NSError *))failure
+{
+    [self postWithUrl:URL_access_token param:param resultClass:[Account class] success:success failure:failure];
 }
 
 @end

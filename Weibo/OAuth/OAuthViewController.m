@@ -11,7 +11,7 @@
 #import "NewFeatureViewController.h"
 #import "ControllerTool.h"
 #import "Account.h"
-#import "AccountTool.h"
+#import "AccountManager.h"
 #import <WebKit/WebKit.h>
 
 @interface OAuthViewController () <WKNavigationDelegate>
@@ -93,23 +93,20 @@
 - (void)accessTokenWithCode:(NSString *)code
 {
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = AppKey;
-    params[@"client_secret"] = AppSecret;
-    params[@"grant_type"] = @"authorization_code";
-    params[@"code"] = code;
-    params[@"redirect_uri"] = RedirectURI;  // 必须开发平台填写的回调地址一致，一个斜杠都不能少
-    
-    // 2.发送POST请求
-    [HttpTool post:URL_access_token params:params success:^(id  _Nonnull responseObject) {
+    AccessTokenParam *param = [[AccessTokenParam alloc] init];
+    param.client_id = AppKey;
+    param.client_secret = AppSecret;
+    param.grant_type = @"authorization_code";
+    param.code = code;
+    param.redirect_uri = RedirectURI;
+
+    // 2.获得accessToken
+    [AccountManager accessTokenWithParam:param success:^(Account * _Nonnull account) {
         // 隐藏HUD
         [MBProgressHUD hideHUD];
-        
-        // 字典转模型
-        Account *account = [Account accountWithDict:responseObject];
-        
+
         // 存储账号模型
-        [AccountTool save:account];
+        [AccountManager save:account];
         
         // 存储授权成功的账号信息
         //        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];

@@ -10,8 +10,9 @@
 #import "JRTextView.h"
 #import "ComposeToolbar.h"
 #import "PhotosView.h"
-#import "AccountTool.h"
+#import "AccountManager.h"
 #import "Account.h"
+#import "StatusManager.h"
 
 @interface ComposeViewController () <ComposeToolbarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) JRTextView *textView;
@@ -253,6 +254,8 @@
     [self dismissViewControllerAnimated:YES completion:nil]; 
 }
 
+#pragma mark - 发微博 
+
 - (void)sendStatusWithImage
 {
 //    // 1.获取请求管理者
@@ -283,12 +286,11 @@
 - (void)sendStatusWithoutImage
 {
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [AccountTool account].access_token;
-    params[@"status"] = self.textView.text;
+    SendStatusParam *params = [SendStatusParam param];
+    params.status = self.textView.text;
     
-    // 2.发送POST请求
-    [HttpTool post:URL_Update params:params success:^(id  _Nonnull responseObject) {
+    // 2.发微博
+    [StatusManager sendStatusWithParam:params success:^(SendStatusResult * _Nonnull result) {
         [MBProgressHUD showSuccess:@"发表成功"];
     } failure:^(NSError * _Nonnull error) {
         [MBProgressHUD showError:@"发表失败"];

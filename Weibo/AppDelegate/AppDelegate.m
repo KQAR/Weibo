@@ -11,7 +11,7 @@
 #import "NewFeatureViewController.h"
 #import "OAuthViewController.h"
 #import "ControllerTool.h"
-#import "AccountTool.h"
+#import "AccountManager.h"
 #import "Account.h"
 
 @interface AppDelegate ()
@@ -35,7 +35,7 @@
 //    NSString *filepath = [doc stringByAppendingPathComponent:@"account.plist"];
 //    NSDictionary *account = [NSDictionary dictionaryWithContentsOfFile:filepath];
 
-    Account *account = [AccountTool account];
+    Account *account = [AccountManager account];
     
     if (account) {
         // 切换控制器
