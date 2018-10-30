@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : UITableViewController
 
+- (void)refresh:(BOOL)fromSelf; 
+
 @end
 
 NS_ASSUME_NONNULL_END

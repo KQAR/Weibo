@@ -74,7 +74,18 @@
     return YES;
 }
 
-
+/**
+ *  程序进入后台的时候调用
+ */
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    // 提醒操作系统：当前这个应用程序需要在后台开启一个任务
+    // 操作系统会允许这个应用程序在后台保持运行状态（能够持续的时间是不确定）
+    UIBackgroundTaskIdentifier taskID = [application beginBackgroundTaskWithExpirationHandler:^{
+        // 后台运行的时间到期了，就会自动调用这个block
+        [application endBackgroundTask:taskID];
+    }];
+}
 
 
 @end

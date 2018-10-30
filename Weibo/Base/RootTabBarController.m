@@ -41,19 +41,19 @@
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
-//- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UINavigationController *)viewController
-//{
-//    UIViewController *vc = [viewController.viewControllers firstObject];
-//    if ([vc isKindOfClass:[HomeViewController class]]) {
-//        if (self.lastSelectedViewContoller == vc) {
-//            [self.home refresh:YES];
-//        } else {
-//            [self.home refresh:NO];
-//        }
-//    }
-//
-//    self.lastSelectedViewContoller = vc;
-//}
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UINavigationController *)viewController
+{
+    UIViewController *vc = [viewController.viewControllers firstObject];
+    if ([vc isKindOfClass:[HomeViewController class]]) {
+        if (self.lastSelectedViewContoller == vc) {
+            [self.home refresh:YES];
+        } else {
+            [self.home refresh:NO];
+        }
+    }
+
+    self.lastSelectedViewContoller = vc;
+}
 
 - (void)getUnreadCount
 {

@@ -20,6 +20,7 @@
 /** 微博数组 **/
 @property (nonatomic, strong) NSMutableArray *statuses;
 
+@property (nonatomic, weak) UIRefreshControl *refreshControl;
 @property (nonatomic, weak) LoadMoreFooter *footer;
 @property (nonatomic, weak) JRTitleButton *titleButton;
 @end
@@ -85,6 +86,8 @@
     // 1.添加下拉刷新控件
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     [self.tableView addSubview:refresh];
+    self.refreshControl = refresh;
+    
     // 2.监听状态
     [refresh addTarget:self action:@selector(refreshControlStateChange:) forControlEvents:UIControlEventValueChanged];
     // 3.让刷新控件自动进入刷新状态
@@ -96,6 +99,24 @@
     self.tableView.tableFooterView = footer;
     self.footer = footer; 
 }
+
+#pragma mark - 点击tabbar刷新
+
+- (void)refresh:(BOOL)fromSelf
+{
+    if (self.tabBarItem.badgeValue) {
+        // 转圈圈
+        [self.refreshControl beginRefreshing];
+        
+        // 刷新数据
+        [self loadNewStatuses:self.refreshControl];
+    } else if (fromSelf) { // 没有数字
+        // 让表格回到最顶部
+        NSIndexPath *firstRow = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView scrollToRowAtIndexPath:firstRow atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+}
+
 
 #pragma mark - 获取用户信息
 
@@ -199,6 +220,10 @@
 
 - (void)showNewStatusesCount:(NSInteger)count
 {
+    // 0.清零提醒数字
+    [UIApplication sharedApplication].applicationIconBadgeNumber -= self.tabBarItem.badgeValue.intValue;
+    self.tabBarItem.badgeValue = nil;
+    
     // 1. 创建一个UILabel
     UILabel *label = [[UILabel alloc] init];
     
