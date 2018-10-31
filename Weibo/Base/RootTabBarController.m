@@ -37,8 +37,8 @@
     // 创建自定义tabbar
     [self addCustomTabBar];
     // 利用定时器获得用户的未读数
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(getUnreadCount) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+//    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(getUnreadCount) userInfo:nil repeats:YES];
+//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UINavigationController *)viewController

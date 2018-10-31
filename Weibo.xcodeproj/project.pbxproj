@@ -26,6 +26,16 @@
 		87229DF521789D7000DF2355 /* ControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DF421789D7000DF2355 /* ControllerTool.m */; };
 		87229DF82178A34600DF2355 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DF72178A34600DF2355 /* Account.m */; };
 		87229DFB2178A71100DF2355 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DFA2178A71100DF2355 /* AccountManager.m */; };
+		872CA13121896DA100EA5DFA /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA13021896DA100EA5DFA /* StatusCell.m */; };
+		872CA13421896E0800EA5DFA /* StatusDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA13321896E0800EA5DFA /* StatusDetailView.m */; };
+		872CA13721896E1900EA5DFA /* StatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA13621896E1900EA5DFA /* StatusToolbar.m */; };
+		872CA13A21896E3700EA5DFA /* StatusOriginalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA13921896E3700EA5DFA /* StatusOriginalView.m */; };
+		872CA13D21896E5600EA5DFA /* StatusRetweetedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA13C21896E5600EA5DFA /* StatusRetweetedView.m */; };
+		872CA14121897EEC00EA5DFA /* StatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA14021897EEC00EA5DFA /* StatusFrame.m */; };
+		872CA14421897F0600EA5DFA /* StatusDetailFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA14321897F0600EA5DFA /* StatusDetailFrame.m */; };
+		872CA14721897F1800EA5DFA /* StatusOriginalFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA14621897F1800EA5DFA /* StatusOriginalFrame.m */; };
+		872CA14A21897F2C00EA5DFA /* StatusRetweetedFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA14921897F2C00EA5DFA /* StatusRetweetedFrame.m */; };
+		872CA14D2189D9AC00EA5DFA /* NSDate+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 872CA14C2189D9AC00EA5DFA /* NSDate+MJ.m */; };
 		872FDF19217C91B70065C468 /* LoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 872FDF18217C91B70065C468 /* LoadMoreFooter.m */; };
 		872FDF1B217C91F10065C468 /* LoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 872FDF1A217C91F10065C468 /* LoadMoreFooter.xib */; };
 		8736B12B216EE41E00ACBC88 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8736B12A216EE41E00ACBC88 /* UIImage+Extension.m */; };
@@ -99,6 +109,26 @@
 		87229DF72178A34600DF2355 /* Account.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		87229DF92178A71100DF2355 /* AccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		87229DFA2178A71100DF2355 /* AccountManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
+		872CA12F21896DA100EA5DFA /* StatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		872CA13021896DA100EA5DFA /* StatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		872CA13221896E0800EA5DFA /* StatusDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusDetailView.h; sourceTree = "<group>"; };
+		872CA13321896E0800EA5DFA /* StatusDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusDetailView.m; sourceTree = "<group>"; };
+		872CA13521896E1900EA5DFA /* StatusToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusToolbar.h; sourceTree = "<group>"; };
+		872CA13621896E1900EA5DFA /* StatusToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusToolbar.m; sourceTree = "<group>"; };
+		872CA13821896E3700EA5DFA /* StatusOriginalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusOriginalView.h; sourceTree = "<group>"; };
+		872CA13921896E3700EA5DFA /* StatusOriginalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusOriginalView.m; sourceTree = "<group>"; };
+		872CA13B21896E5600EA5DFA /* StatusRetweetedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusRetweetedView.h; sourceTree = "<group>"; };
+		872CA13C21896E5600EA5DFA /* StatusRetweetedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusRetweetedView.m; sourceTree = "<group>"; };
+		872CA13F21897EEC00EA5DFA /* StatusFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusFrame.h; sourceTree = "<group>"; };
+		872CA14021897EEC00EA5DFA /* StatusFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusFrame.m; sourceTree = "<group>"; };
+		872CA14221897F0600EA5DFA /* StatusDetailFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusDetailFrame.h; sourceTree = "<group>"; };
+		872CA14321897F0600EA5DFA /* StatusDetailFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusDetailFrame.m; sourceTree = "<group>"; };
+		872CA14521897F1800EA5DFA /* StatusOriginalFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusOriginalFrame.h; sourceTree = "<group>"; };
+		872CA14621897F1800EA5DFA /* StatusOriginalFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusOriginalFrame.m; sourceTree = "<group>"; };
+		872CA14821897F2C00EA5DFA /* StatusRetweetedFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusRetweetedFrame.h; sourceTree = "<group>"; };
+		872CA14921897F2C00EA5DFA /* StatusRetweetedFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusRetweetedFrame.m; sourceTree = "<group>"; };
+		872CA14B2189D9AC00EA5DFA /* NSDate+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MJ.h"; sourceTree = "<group>"; };
+		872CA14C2189D9AC00EA5DFA /* NSDate+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MJ.m"; sourceTree = "<group>"; };
 		872FDF17217C91B70065C468 /* LoadMoreFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadMoreFooter.h; sourceTree = "<group>"; };
 		872FDF18217C91B70065C468 /* LoadMoreFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadMoreFooter.m; sourceTree = "<group>"; };
 		872FDF1A217C91F10065C468 /* LoadMoreFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreFooter.xib; sourceTree = "<group>"; };
@@ -252,6 +282,7 @@
 		870BF8DC2179E226001482BE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				872CA13E21897ECC00EA5DFA /* CellFrame */,
 				870BF8DD2179E256001482BE /* User.h */,
 				870BF8DE2179E256001482BE /* User.m */,
 				870BF8E02179E3F7001482BE /* Status.h */,
@@ -287,6 +318,38 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		872CA12B21896D3200EA5DFA /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				872CA12F21896DA100EA5DFA /* StatusCell.h */,
+				872CA13021896DA100EA5DFA /* StatusCell.m */,
+				872CA13221896E0800EA5DFA /* StatusDetailView.h */,
+				872CA13321896E0800EA5DFA /* StatusDetailView.m */,
+				872CA13521896E1900EA5DFA /* StatusToolbar.h */,
+				872CA13621896E1900EA5DFA /* StatusToolbar.m */,
+				872CA13821896E3700EA5DFA /* StatusOriginalView.h */,
+				872CA13921896E3700EA5DFA /* StatusOriginalView.m */,
+				872CA13B21896E5600EA5DFA /* StatusRetweetedView.h */,
+				872CA13C21896E5600EA5DFA /* StatusRetweetedView.m */,
+			);
+			path = CellView;
+			sourceTree = "<group>";
+		};
+		872CA13E21897ECC00EA5DFA /* CellFrame */ = {
+			isa = PBXGroup;
+			children = (
+				872CA13F21897EEC00EA5DFA /* StatusFrame.h */,
+				872CA14021897EEC00EA5DFA /* StatusFrame.m */,
+				872CA14221897F0600EA5DFA /* StatusDetailFrame.h */,
+				872CA14321897F0600EA5DFA /* StatusDetailFrame.m */,
+				872CA14521897F1800EA5DFA /* StatusOriginalFrame.h */,
+				872CA14621897F1800EA5DFA /* StatusOriginalFrame.m */,
+				872CA14821897F2C00EA5DFA /* StatusRetweetedFrame.h */,
+				872CA14921897F2C00EA5DFA /* StatusRetweetedFrame.m */,
+			);
+			path = CellFrame;
+			sourceTree = "<group>";
+		};
 		8736B12F216F133C00ACBC88 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +362,7 @@
 		8736B133216F19C700ACBC88 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				872CA12B21896D3200EA5DFA /* CellView */,
 				8736B134216F19E800ACBC88 /* JRTitleButton.h */,
 				8736B135216F19E800ACBC88 /* JRTitleButton.m */,
 				8736B137216F267900ACBC88 /* JRPopMenu.h */,
@@ -486,6 +550,8 @@
 			isa = PBXGroup;
 			children = (
 				870BF8DA2179D13F001482BE /* Foundation+Log.m */,
+				872CA14B2189D9AC00EA5DFA /* NSDate+MJ.h */,
+				872CA14C2189D9AC00EA5DFA /* NSDate+MJ.m */,
 				87FC653A216DFB6C0038B159 /* UIView+Extension.h */,
 				87FC653B216DFB6C0038B159 /* UIView+Extension.m */,
 				87FC653E216E02FE0038B159 /* UIBarButtonItem+Extension.h */,
@@ -624,11 +690,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872CA13D21896E5600EA5DFA /* StatusRetweetedView.m in Sources */,
 				871896072173122900AF0F99 /* MBProgressHUD+MJ.m in Sources */,
+				872CA13721896E1900EA5DFA /* StatusToolbar.m in Sources */,
 				87FC653C216DFB6C0038B159 /* UIView+Extension.m in Sources */,
+				872CA13A21896E3700EA5DFA /* StatusOriginalView.m in Sources */,
 				8707583E217EB453003F9052 /* StatusManager.m in Sources */,
 				8707585E217ED0B2003F9052 /* AccessTokenParam.m in Sources */,
 				8700F70C21723519002C66E3 /* OAuthViewController.m in Sources */,
+				872CA14421897F0600EA5DFA /* StatusDetailFrame.m in Sources */,
 				87229DFB2178A71100DF2355 /* AccountManager.m in Sources */,
 				870BF8E52179FDCF001482BE /* Photo.m in Sources */,
 				87FC6523216DCA860038B159 /* RootTabBarController.m in Sources */,
@@ -636,6 +706,7 @@
 				87FC6532216DDF470038B159 /* DiscoverViewController.m in Sources */,
 				87BA468A217E001500B20C8D /* AppDelegate+Service.m in Sources */,
 				87075845217EC96D003F9052 /* HomeStatusesParam.m in Sources */,
+				872CA13421896E0800EA5DFA /* StatusDetailView.m in Sources */,
 				87075848217EC9C2003F9052 /* HomeStatusesResult.m in Sources */,
 				87FC652F216DDF340038B159 /* MessageViewController.m in Sources */,
 				87075854217ECEF8003F9052 /* UserManager.m in Sources */,
@@ -648,6 +719,7 @@
 				87FC6517216DC9230038B159 /* main.m in Sources */,
 				8707584B217ECA47003F9052 /* UserInfoParam.m in Sources */,
 				872FDF19217C91B70065C468 /* LoadMoreFooter.m in Sources */,
+				872CA14A21897F2C00EA5DFA /* StatusRetweetedFrame.m in Sources */,
 				8736B13C216F49CD00ACBC88 /* JRTabBar.m in Sources */,
 				877E1A7521873C160089BEE9 /* BaseManager.m in Sources */,
 				8736B136216F19E800ACBC88 /* JRTitleButton.m in Sources */,
@@ -658,17 +730,21 @@
 				877E1A7B218743D00089BEE9 /* UnreadCountParam.m in Sources */,
 				87FC6509216DC9170038B159 /* AppDelegate.m in Sources */,
 				870BF8E22179E3F7001482BE /* Status.m in Sources */,
+				872CA14721897F1800EA5DFA /* StatusOriginalFrame.m in Sources */,
 				8736B132216F136700ACBC88 /* JRSearchBar.m in Sources */,
 				8736B12B216EE41E00ACBC88 /* UIImage+Extension.m in Sources */,
 				87BA467B217D62EB00B20C8D /* JRTextView.m in Sources */,
 				87229DF82178A34600DF2355 /* Account.m in Sources */,
 				8707584E217ECA74003F9052 /* UserInfoResult.m in Sources */,
+				872CA14121897EEC00EA5DFA /* StatusFrame.m in Sources */,
 				877E1A7821873EE70089BEE9 /* BaseParam.m in Sources */,
 				8702D48D2178705D007FDB8D /* ComposeViewController.m in Sources */,
 				87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */,
 				870BF8DB2179D140001482BE /* Foundation+Log.m in Sources */,
+				872CA13121896DA100EA5DFA /* StatusCell.m in Sources */,
 				8707585B217ED056003F9052 /* SendStatusResult.m in Sources */,
 				87FC652C216DDF240038B159 /* HomeViewController.m in Sources */,
+				872CA14D2189D9AC00EA5DFA /* NSDate+MJ.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

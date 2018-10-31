@@ -19,4 +19,15 @@
 #define CLog(format, ...)  NSLog(format, ## __VA_ARGS__)
 #define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
+
+// 屏幕尺寸
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+// cell的计算参数
+// cell的内边距
+#define StatusCellInset 10
+
+// cell间的间距
+#define StatusCellMargin 10
+
 #endif /* UtilsMacros_h */

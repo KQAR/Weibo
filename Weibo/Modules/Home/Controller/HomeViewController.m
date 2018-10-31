@@ -15,10 +15,12 @@
 #import "LoadMoreFooter.h"
 #import "StatusManager.h"
 #import "UserManager.h"
+#import "StatusFrame.h"
+#import "StatusCell.h"
 
 @interface HomeViewController () <JRPopMenuDelegate>
 /** 微博数组 **/
-@property (nonatomic, strong) NSMutableArray *statuses;
+@property (nonatomic, strong) NSMutableArray *statusFrames;
 
 @property (nonatomic, weak) UIRefreshControl *refreshControl;
 @property (nonatomic, weak) LoadMoreFooter *footer;
@@ -29,16 +31,19 @@
 
 #pragma mark - 初始化
 
-- (NSMutableArray *)statuses
+- (NSMutableArray *)statusFrames
 {
-    if (_statuses == nil) {
-        _statuses = [NSMutableArray array];
+    if (_statusFrames == nil) {
+        _statusFrames = [NSMutableArray array];
     }
-    return _statuses;
+    return _statusFrames;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.backgroundColor = RGB(211, 211, 211);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 设置导航栏
     [self setupNavBar];
@@ -143,6 +148,26 @@
 
 #pragma mark - 加载微博数据
 
+/**
+ *  根据微博模型数组 转成 微博frame模型数据
+ *
+ *  @param statuses 微博模型数组
+ *
+ */
+- (NSArray *)statusFramesWithStatuses:(NSArray *)statuses
+{
+    NSMutableArray *frames = [NSMutableArray array];
+    for (Status *status in statuses) {
+        StatusFrame *frame = [[StatusFrame alloc] init];
+        // 传递微博模型数据，计算所有子控件的frame
+        frame.status = status;
+        [frames addObject:frame];
+    }
+    return frames;
+}
+
+#pragma mark - 加载微博数据
+
 - (void)refreshControlStateChange:(UIRefreshControl *)refreshControl
 {
     [self loadNewStatuses:refreshControl];
@@ -154,20 +179,21 @@
 {
     // 1.封装请求参数
     HomeStatusesParam *param = [HomeStatusesParam param];
-    Status *firstStatus = [self.statuses firstObject];
+    StatusFrame *firstStatusFrame = [self.statusFrames firstObject];
+    Status *firstStatus = firstStatusFrame.status;
     if (firstStatus) {
         param.since_id = @([firstStatus.idstr longLongValue]);
     }
     
     // 2.加载微博数据
     [StatusManager homeStatusesWithParam:param success:^(HomeStatusesResult * _Nonnull result) {
-        // 获得最新微博字典数组
-        NSArray *newStatuses = result.statuses;
+        // 获得最新微博frame数组
+        NSArray *newFrames = [self statusFramesWithStatuses:result.statuses];
         
         // 将新数据插入到旧数据的前面
-        NSRange range = NSMakeRange(0, newStatuses.count);
+        NSRange range = NSMakeRange(0, newFrames.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:newStatuses atIndexes:indexSet];
+        [self.statusFrames insertObjects:newFrames atIndexes:indexSet];
         
         // 重新刷新表格
         [self.tableView reloadData];
@@ -176,7 +202,7 @@
         [refreshControl endRefreshing];
         
         // 提示用户刷出的微博数量
-        [self showNewStatusesCount:newStatuses.count];
+        [self showNewStatusesCount:newFrames.count];
     } failure:^(NSError * _Nonnull error) {
         JRLog(@"请求失败---%@", error);
         // 刷新控件停止刷新
@@ -190,7 +216,8 @@
 {
     // 1.封装请求参数、
     HomeStatusesParam *param = [HomeStatusesParam param];
-    Status *lastStatus =  [self.statuses lastObject];
+    StatusFrame *lastStatusFrame = [self.statusFrames lastObject];
+    Status *lastStatus =  lastStatusFrame.status;
     if (lastStatus) {
         // max_id    false    int64    若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
         param.max_id = @([lastStatus.idstr longLongValue] - 1);
@@ -198,11 +225,11 @@
     
     // 2.加载微博数据
     [StatusManager homeStatusesWithParam:param success:^(HomeStatusesResult * _Nonnull result) {
-        // 微博字典数组 ---> 微博模型数组
-        NSArray *newStatuses = result.statuses;
+        // 微博字典数组 ---> 微博frame数组
+        NSArray *newFrames = [self statusFramesWithStatuses:result.statuses];
         
         // 将新数据插入到旧数据的最后面
-        [self.statuses addObjectsFromArray:newStatuses];
+        [self.statusFrames addObjectsFromArray:newFrames];
         
         // 重新刷新表格
         [self.tableView reloadData];
@@ -311,27 +338,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    tableView.tableFooterView.hidden = self.statuses.count == 0;
-    return self.statuses.count;
+    tableView.tableFooterView.hidden = self.statusFrames.count == 0;
+    return self.statusFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    }
+    StatusCell *cell = [StatusCell cellWithTableView:tableView];
     
-    // 取出这行对应的微博数据
-    Status *status = self.statuses[indexPath.row];
-    cell.textLabel.text = status.text;
-    // 取出用户字典数据
-    User *user = status.user;
-    cell.detailTextLabel.text = user.name;
-    // 下载头像
-    NSString *imageUrlStr = user.profile_image_url;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrlStr] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    cell.statusFrame = self.statusFrames[indexPath.row];
     
     return cell;
 }
@@ -348,7 +363,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (self.statuses.count <= 0 || self.footer.isRefreshing)
+    if (self.statusFrames.count <= 0 || self.footer.isRefreshing)
     {
         NSLog(@"跳出盘帝国");
         return;
@@ -369,6 +384,12 @@
             [self loadMoreStatuses];
         });
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    StatusFrame *frame = self.statusFrames[indexPath.row];
+    return frame.cellHeight;
 }
 
 @end

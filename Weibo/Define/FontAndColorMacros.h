@@ -24,6 +24,18 @@
 #define RGBA(r,g,b,a)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define RGB(r,g,b)     [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
 
+// 原创微博昵称字体
+#define StatusOrginalNameFont [UIFont systemFontOfSize:14]
+// 原创微博时间字体
+#define StatusOrginalTimeFont [UIFont systemFontOfSize:12]
+// 原创微博来源字体
+#define StatusOrginalSourceFont StatusOrginalTimeFont
+// 原创微博正文字体
+#define StatusOrginalTextFont [UIFont systemFontOfSize:15]
 
+// 转发微博昵称字体
+#define StatusRetweetedNameFont StatusOrginalNameFont
+// 转发微博正文字体
+#define StatusRetweetedTextFont StatusOrginalTextFont
 
 #endif /* FontAndColorMacros_h */
