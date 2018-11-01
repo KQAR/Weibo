@@ -9,6 +9,7 @@
 #import "StatusOriginalFrame.h"
 #import "Status.h"
 #import "User.h"
+#import "StatusPhotosView.h"
 
 @implementation StatusOriginalFrame
 
@@ -60,11 +61,24 @@
     CGSize textSize = [status.text sizeWithFont:StatusOrginalTextFont constrainedToSize:maxSize];
     self.textFrame = (CGRect){{textX, textY}, textSize};
     
+    // 7.配图相册
+    CGFloat h = 0;
+    if (status.pic_urls.count) {
+        CGFloat photosX = textX;
+        CGFloat photosY = CGRectGetMaxY(self.textFrame) + StatusCellInset;
+        CGSize photosSize = [StatusPhotosView sizeWithPhotosCount:status.pic_urls.count];
+        self.photosFrame = (CGRect){{photosX, photosY}, photosSize};
+        
+        h = CGRectGetMaxY(self.photosFrame) + StatusCellInset;
+    } else {
+        h = CGRectGetMaxY(self.textFrame) + StatusCellInset;
+    }
+    
     // 自己
     CGFloat x = 0;
     CGFloat y = 0;
     CGFloat w = ScreenWidth;
-    CGFloat h = CGRectGetMaxY(self.textFrame) + StatusCellInset;
+//    CGFloat h = CGRectGetMaxY(self.textFrame) + StatusCellInset;
     self.frame = CGRectMake(x, y, w, h);
 }
 

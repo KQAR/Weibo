@@ -11,6 +11,7 @@
 #import "Status.h"
 #import "User.h"
 #import "UIImageView+WebCache.h"
+#import "StatusPhotosView.h"
 
 @interface StatusOriginalView()
 /** 昵称 */
@@ -25,6 +26,8 @@
 @property (nonatomic, weak) UIImageView *iconView;
 /** 会员图标 */
 @property (nonatomic, weak) UIImageView *vipView;
+/** 配图相册 */
+@property (nonatomic, weak) StatusPhotosView *photosView;
 @end
 
 @implementation StatusOriginalView
@@ -70,6 +73,11 @@
         vipView.contentMode = UIViewContentModeCenter;
         [self addSubview:vipView];
         self.vipView = vipView;
+        
+        // 7.配图相册
+        StatusPhotosView *photosView = [[StatusPhotosView alloc] init];
+        [self addSubview:photosView];
+        self.photosView = photosView;
     }
     return self;
 }
@@ -121,6 +129,15 @@
     // 5.头像
     self.iconView.frame = originalFrame.iconFrame;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    
+    // 6.配图相册
+    if (status.pic_urls.count) { // 有配图
+        self.photosView.frame = originalFrame.photosFrame;
+        self.photosView.pic_urls = status.pic_urls;
+        self.photosView.hidden = NO;
+    } else {
+        self.photosView.hidden = YES;
+    }
 }
 
 @end

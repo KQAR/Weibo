@@ -365,7 +365,7 @@
 {
     if (self.statusFrames.count <= 0 || self.footer.isRefreshing)
     {
-        NSLog(@"跳出盘帝国");
+        NSLog(@"滚动~~~");
         return;
     }
     // 1.差距

@@ -33,16 +33,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Status *retweeted_status;
 
 /** int    转发数 **/
-@property (nonatomic, assign) int *reposts_count;
+@property (nonatomic, assign) int reposts_count;
 
 /** int    评论数 **/
-@property (nonatomic, assign) int *comments_count;
+@property (nonatomic, assign) int comments_count;
 
 /** int    表态数 **/
-@property (nonatomic, assign) int *attitudes_count;
+@property (nonatomic, assign) int attitudes_count;
 
 /** object    微博配图ID。多图时返回多图ID，用来拼接图片url。用返回字段thumbnail_pic的地址配上该返回字段的图片ID，即可得到多个图片url。 **/
-@property (nonatomic, strong) NSArray *pic_ids;
+@property (nonatomic, strong) NSArray *pic_urls;
+
+//pic_ids
 
 @end
 

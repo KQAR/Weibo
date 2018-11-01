@@ -14,7 +14,7 @@
 
 + (NSDictionary *)mj_objectClassInArray
 {
-    return @{@"pic_ids" : [Photo class]};
+    return @{@"pic_urls" : [Photo class]};
 }
 
 /**

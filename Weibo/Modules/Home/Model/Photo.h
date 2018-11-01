@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 缩略图 **/
 @property (nonatomic, copy) NSString *thumbnail_pic;
 
+/** 原图 **/
+@property (nonatomic, copy) NSString *bmiddle_pic;
+
 @end
 
 NS_ASSUME_NONNULL_END

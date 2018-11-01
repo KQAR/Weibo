@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class  Status;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface StatusToolbar : UIImageView
-
+@property (nonatomic, assign) Status *status;
 @end
 
 NS_ASSUME_NONNULL_END

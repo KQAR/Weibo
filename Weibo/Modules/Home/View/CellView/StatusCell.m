@@ -57,6 +57,7 @@
     
     // 2.底部工具条的frame数据
     self.toolbar.frame = statusFrame.toolbarFrame;
+    self.toolbar.status = statusFrame.status;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
