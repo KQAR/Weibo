@@ -54,6 +54,10 @@
 		8743F541218AD40500B425FA /* MJPhotoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F537218AD40500B425FA /* MJPhotoToolbar.m */; };
 		8743F542218AD40500B425FA /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F539218AD40500B425FA /* MJPhotoView.m */; };
 		8743F543218AD40500B425FA /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F53B218AD40500B425FA /* SDWebImageManager+MJ.m */; };
+		8743F547218AF82F00B425FA /* EmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F546218AF82F00B425FA /* EmotionKeyboard.m */; };
+		8743F54A218AF85000B425FA /* EmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F549218AF85000B425FA /* EmotionListView.m */; };
+		8743F54D218B23D300B425FA /* EmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F54C218B23D300B425FA /* EmotionToolbar.m */; };
+		8743F550218B286F00B425FA /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F54F218B286F00B425FA /* Emotion.m */; };
 		877E1A7521873C160089BEE9 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7421873C160089BEE9 /* BaseManager.m */; };
 		877E1A7821873EE70089BEE9 /* BaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7721873EE70089BEE9 /* BaseParam.m */; };
 		877E1A7B218743D00089BEE9 /* UnreadCountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7A218743D00089BEE9 /* UnreadCountParam.m */; };
@@ -173,6 +177,14 @@
 		8743F539218AD40500B425FA /* MJPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhotoView.m; sourceTree = "<group>"; };
 		8743F53A218AD40500B425FA /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
 		8743F53B218AD40500B425FA /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		8743F545218AF82F00B425FA /* EmotionKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmotionKeyboard.h; sourceTree = "<group>"; };
+		8743F546218AF82F00B425FA /* EmotionKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionKeyboard.m; sourceTree = "<group>"; };
+		8743F548218AF85000B425FA /* EmotionListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmotionListView.h; sourceTree = "<group>"; };
+		8743F549218AF85000B425FA /* EmotionListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionListView.m; sourceTree = "<group>"; };
+		8743F54B218B23D300B425FA /* EmotionToolbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmotionToolbar.h; sourceTree = "<group>"; };
+		8743F54C218B23D300B425FA /* EmotionToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionToolbar.m; sourceTree = "<group>"; };
+		8743F54E218B286F00B425FA /* Emotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Emotion.h; sourceTree = "<group>"; };
+		8743F54F218B286F00B425FA /* Emotion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
 		877E1A7321873C160089BEE9 /* BaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
 		877E1A7421873C160089BEE9 /* BaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
 		877E1A7621873EE70089BEE9 /* BaseParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseParam.h; sourceTree = "<group>"; };
@@ -304,6 +316,8 @@
 				87075857217ED03D003F9052 /* SendStatusParam.m */,
 				87075859217ED056003F9052 /* SendStatusResult.h */,
 				8707585A217ED056003F9052 /* SendStatusResult.m */,
+				8743F54E218B286F00B425FA /* Emotion.h */,
+				8743F54F218B286F00B425FA /* Emotion.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -439,9 +453,23 @@
 			path = MJPhotoBrowser;
 			sourceTree = "<group>";
 		};
+		8743F544218AF80800B425FA /* EmotionKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8743F545218AF82F00B425FA /* EmotionKeyboard.h */,
+				8743F546218AF82F00B425FA /* EmotionKeyboard.m */,
+				8743F548218AF85000B425FA /* EmotionListView.h */,
+				8743F549218AF85000B425FA /* EmotionListView.m */,
+				8743F54B218B23D300B425FA /* EmotionToolbar.h */,
+				8743F54C218B23D300B425FA /* EmotionToolbar.m */,
+			);
+			path = EmotionKeyboard;
+			sourceTree = "<group>";
+		};
 		87BA4678217D62A800B20C8D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8743F544218AF80800B425FA /* EmotionKeyboard */,
 				87BA4679217D62EB00B20C8D /* JRTextView.h */,
 				87BA467A217D62EB00B20C8D /* JRTextView.m */,
 				87BA467C217D75C800B20C8D /* ComposeToolbar.h */,
@@ -765,15 +793,18 @@
 				8736B139216F267900ACBC88 /* JRPopMenu.m in Sources */,
 				87FC6532216DDF470038B159 /* DiscoverViewController.m in Sources */,
 				87BA468A217E001500B20C8D /* AppDelegate+Service.m in Sources */,
+				8743F547218AF82F00B425FA /* EmotionKeyboard.m in Sources */,
 				87075845217EC96D003F9052 /* HomeStatusesParam.m in Sources */,
 				872CA13421896E0800EA5DFA /* StatusDetailView.m in Sources */,
 				87075848217EC9C2003F9052 /* HomeStatusesResult.m in Sources */,
 				87FC652F216DDF340038B159 /* MessageViewController.m in Sources */,
+				8743F550218B286F00B425FA /* Emotion.m in Sources */,
 				87075854217ECEF8003F9052 /* UserManager.m in Sources */,
 				87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */,
 				877E1A7E218743E80089BEE9 /* UnreadCountResult.m in Sources */,
 				870BF8DF2179E256001482BE /* User.m in Sources */,
 				8743F542218AD40500B425FA /* MJPhotoView.m in Sources */,
+				8743F54D218B23D300B425FA /* EmotionToolbar.m in Sources */,
 				87BA4687217DF5BD00B20C8D /* HttpTool.m in Sources */,
 				87FC6540216E02FE0038B159 /* UIBarButtonItem+Extension.m in Sources */,
 				8743F52B218A963800B425FA /* StatusPhoto.m in Sources */,
@@ -790,6 +821,7 @@
 				8736B140216F7ECE00ACBC88 /* NewFeatureViewController.m in Sources */,
 				8743F53F218AD40500B425FA /* MJPhotoLoadingView.m in Sources */,
 				87229DF521789D7000DF2355 /* ControllerTool.m in Sources */,
+				8743F54A218AF85000B425FA /* EmotionListView.m in Sources */,
 				87FC6535216DDF570038B159 /* ProfileViewController.m in Sources */,
 				877E1A7B218743D00089BEE9 /* UnreadCountParam.m in Sources */,
 				87FC6509216DC9170038B159 /* AppDelegate.m in Sources */,

@@ -24,10 +24,10 @@
  */
 + (void)initialize
 {
-//    //设置导航栏主题
-//    [self setupNavgationBarTheme];
-//    //设置导航栏按钮主题
-//    [self setupBarButtonItemTheme];
+    //设置导航栏主题
+    [self setupNavgationBarTheme];
+    //设置导航栏按钮主题
+    [self setupBarButtonItemTheme];
 }
 
 + (void)setupNavgationBarTheme
@@ -49,7 +49,7 @@
     UIBarButtonItem *appearance = [UIBarButtonItem appearance];
     //设置普通状态的文字属性
     NSMutableDictionary *textDic = [NSMutableDictionary dictionary];
-    textDic[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    textDic[NSForegroundColorAttributeName] = THEMECOLOR;
     textDic[NSFontAttributeName] = JRFont(15);
     NSShadow *shadow = [[NSShadow alloc] init];
     [shadow setShadowOffset:CGSizeZero];

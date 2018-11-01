@@ -112,24 +112,24 @@
 {
     //添加子控制器
     HomeViewController *home = [[HomeViewController alloc] init];
-    [self addOneChildViewController:home title:@"首页" imageName:@"icon_tabbar_homepage" selectedImageName:@"icon_tabbar_homepage_selected"];
+    [self addOneChildViewController:home title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
     self.home = home;
     self.lastSelectedViewContoller = home;
     
     MessageViewController *message = [[MessageViewController alloc] init];
-    [self addOneChildViewController:message title:@"消息" imageName:@"icon_tabbar_merchant_normal" selectedImageName:@"icon_tabbar_merchant_selected"];
+    [self addOneChildViewController:message title:@"消息" imageName:@"tabbar_message_center" selectedImageName:@"tabbar_message_center_selected"];
     self.message = message;
     
     DiscoverViewController *discover = [[DiscoverViewController alloc] init];
-    [self addOneChildViewController:discover title:@"发现" imageName:@"icon_tabbar_onsite" selectedImageName:@"icon_tabbar_onsite_selected"];
+    [self addOneChildViewController:discover title:@"发现" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
     
     ProfileViewController *profile = [[ProfileViewController alloc] init];
-    [self addOneChildViewController:profile title:@"我" imageName:@"icon_tabbar_mine" selectedImageName:@"icon_tabbar_mine_selected"];
+    [self addOneChildViewController:profile title:@"我" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
     self.profile = profile;
     
     //改变tabbarController文字选中颜色
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:[UIColor lightGrayColor], NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:10]} forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:RGB(47, 173, 159)} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName:RGB(244, 109, 9)} forState:UIControlStateSelected];
 }
 
 /**

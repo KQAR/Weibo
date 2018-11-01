@@ -8,24 +8,40 @@
 
 #import "ComposeToolbar.h"
 
+@interface ComposeToolbar()
+@property (nonatomic, weak) UIButton *emotionButton;
+@end
+
 @implementation ComposeToolbar
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"compose_toolbar_background_os7"]];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"compose_toolbar_background"]];
         
         // 添加所有的子控件
-        [self addButtonWithIcon:@"compose_toolbar_picture_os7" highIcon:@"compose_toolbar_picture_highlighted_os7" tag:ComposeToolbarButtonTypePicture];
-        [self addButtonWithIcon:@"compose_camerabutton_background_os7" highIcon:@"compose_camerabutton_background_highlighted_os7" tag:ComposeToolbarButtonTypeCamera];
-        [self addButtonWithIcon:@"compose_mentionbutton_background_os7" highIcon:@"compose_mentionbutton_background_highlighted_os7" tag:ComposeToolbarButtonTypeMention];
-        [self addButtonWithIcon:@"compose_trendbutton_background_os7" highIcon:@"compose_trendbutton_background_highlighted_os7" tag:ComposeToolbarButtonTypeTrend];
-        [self addButtonWithIcon:@"compose_emoticonbutton_background_os7" highIcon:@"compose_emoticonbutton_background_highlighted_os7" tag:ComposeToolbarButtonTypeEmotion];
-        
+        [self addButtonWithIcon:@"compose_toolbar_picture" highIcon:@"compose_toolbar_picture_highlighted" tag:ComposeToolbarButtonTypePicture];
+        [self addButtonWithIcon:@"compose_camerabutton_background" highIcon:@"compose_camerabutton_background_highlighted" tag:ComposeToolbarButtonTypeCamera];
+        [self addButtonWithIcon:@"compose_mentionbutton_background" highIcon:@"compose_mentionbutton_background_highlighted" tag:ComposeToolbarButtonTypeMention];
+        [self addButtonWithIcon:@"compose_trendbutton_background" highIcon:@"compose_trendbutton_background_highlighted" tag:ComposeToolbarButtonTypeTrend];
+        self.emotionButton = [self addButtonWithIcon:@"compose_emoticonbutton_background" highIcon:@"compose_emoticonbutton_background_highlighted" tag:ComposeToolbarButtonTypeEmotion];
     }
     return self;
 }
+
+- (void)setShowEmotionButton:(BOOL)showEmotionButton
+{
+    _showEmotionButton = showEmotionButton;
+    if (showEmotionButton) { // 显示表情按钮
+        [self.emotionButton setImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] forState:UIControlStateNormal];
+        [self.emotionButton setImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    } else { // 切换为键盘按钮
+        [self.emotionButton setImage:[UIImage imageNamed:@"compose_keyboardbutton_background"] forState:UIControlStateNormal];
+        [self.emotionButton setImage:[UIImage imageNamed:@"compose_keyboardbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    }
+}
+
 
 /**
  *  添加一个按钮
@@ -33,7 +49,7 @@
  *  @param icon     默认图标
  *  @param highIcon 高亮图标
  */
-- (void)addButtonWithIcon:(NSString *)icon highIcon:(NSString *)highIcon tag:(ComposeToolbarButtonType)tag
+- (UIButton *)addButtonWithIcon:(NSString *)icon highIcon:(NSString *)highIcon tag:(ComposeToolbarButtonType)tag
 {
     UIButton *button = [[UIButton alloc] init];
     button.tag = tag;
@@ -41,6 +57,7 @@
     [button setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:highIcon] forState:UIControlStateHighlighted];
     [self addSubview:button];
+    return button;
 }
 
 /**

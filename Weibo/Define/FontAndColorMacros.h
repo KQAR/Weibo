@@ -18,11 +18,15 @@
 
 
 #pragma mark ——————————————————————————————— 颜色区 ———————————————————————————————
+
 //随机色
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 //RGB颜色设置
 #define RGBA(r,g,b,a)  [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define RGB(r,g,b)     [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+
+// APP主题色(橙色)
+#define THEMECOLOR RGB(244, 109, 9)
 
 // 原创微博昵称字体
 #define StatusOrginalNameFont [UIFont systemFontOfSize:14]
