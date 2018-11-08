@@ -75,8 +75,8 @@
     if (self.viewControllers.count > 0) {  //如果push的不是栈低的控制器（最先push进来的控制器），那么隐藏tabbar
         viewController.hidesBottomBarWhenPushed = YES;
         //设置导航栏按钮
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"back_icon" highlightedImageName:@"back_icon" target:self action:@selector(back)];
-        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"close_icon" highlightedImageName:@"close_icon" target:self action:@selector(pop)];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_back" highlightedImageName:@"navigationbar_back_highlighted" target:self action:@selector(back)];
+        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_more" highlightedImageName:@"navigationbar_more_highlighted" target:self action:@selector(pop)];
     }
     [super pushViewController:viewController animated:animated]; //这个要放在if判断后面（因为这个是执行push操作，操作之后栈底会增加控制器）
 }

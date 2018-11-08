@@ -1,8 +1,8 @@
 //
-//  DiscoverViewController.h
+//  SettingViewController.h
 //  Weibo
 //
-//  Created by he on 2018/10/10.
+//  Created by he on 2018/11/7.
 //  Copyright © 2018年 huashan. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DiscoverViewController : RootTableViewController
+@interface SettingViewController : RootTableViewController
 
 @end
 

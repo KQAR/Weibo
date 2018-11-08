@@ -23,6 +23,15 @@
 		870BF8E22179E3F7001482BE /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BF8E12179E3F7001482BE /* Status.m */; };
 		870BF8E52179FDCF001482BE /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 870BF8E42179FDCF001482BE /* Photo.m */; };
 		871896072173122900AF0F99 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 871896062173122900AF0F99 /* MBProgressHUD+MJ.m */; };
+		871E24FE21930AB000C42029 /* TableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E24FD21930AB000C42029 /* TableItem.m */; };
+		871E250121930ACA00C42029 /* TableGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E250021930ACA00C42029 /* TableGroup.m */; };
+		871E250421930BE600C42029 /* CommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E250321930BE600C42029 /* CommonTableViewCell.m */; };
+		871E2508219324DD00C42029 /* LabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E2507219324DD00C42029 /* LabelItem.m */; };
+		871E250B219324FF00C42029 /* ArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E250A219324FF00C42029 /* ArrowItem.m */; };
+		871E250E2193251C00C42029 /* SwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E250D2193251C00C42029 /* SwitchItem.m */; };
+		871E25112193258000C42029 /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E25102193258000C42029 /* BadgeView.m */; };
+		871E25142193374E00C42029 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E25132193374E00C42029 /* RootTableViewController.m */; };
+		871E251721933A8500C42029 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E251621933A8500C42029 /* SettingViewController.m */; };
 		87229DF521789D7000DF2355 /* ControllerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DF421789D7000DF2355 /* ControllerTool.m */; };
 		87229DF82178A34600DF2355 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DF72178A34600DF2355 /* Account.m */; };
 		87229DFB2178A71100DF2355 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87229DFA2178A71100DF2355 /* AccountManager.m */; };
@@ -58,6 +67,7 @@
 		8743F54A218AF85000B425FA /* EmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F549218AF85000B425FA /* EmotionListView.m */; };
 		8743F54D218B23D300B425FA /* EmotionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F54C218B23D300B425FA /* EmotionToolbar.m */; };
 		8743F550218B286F00B425FA /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8743F54F218B286F00B425FA /* Emotion.m */; };
+		8779D9852193C4BF00A98D65 /* GeneralSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8779D9842193C4BF00A98D65 /* GeneralSettingViewController.m */; };
 		877E1A7521873C160089BEE9 /* BaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7421873C160089BEE9 /* BaseManager.m */; };
 		877E1A7821873EE70089BEE9 /* BaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7721873EE70089BEE9 /* BaseParam.m */; };
 		877E1A7B218743D00089BEE9 /* UnreadCountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 877E1A7A218743D00089BEE9 /* UnreadCountParam.m */; };
@@ -117,6 +127,24 @@
 		870BF8E42179FDCF001482BE /* Photo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		871896052173122900AF0F99 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		871896062173122900AF0F99 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		871E24FC21930AB000C42029 /* TableItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableItem.h; sourceTree = "<group>"; };
+		871E24FD21930AB000C42029 /* TableItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableItem.m; sourceTree = "<group>"; };
+		871E24FF21930ACA00C42029 /* TableGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableGroup.h; sourceTree = "<group>"; };
+		871E250021930ACA00C42029 /* TableGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableGroup.m; sourceTree = "<group>"; };
+		871E250221930BE600C42029 /* CommonTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTableViewCell.h; sourceTree = "<group>"; };
+		871E250321930BE600C42029 /* CommonTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTableViewCell.m; sourceTree = "<group>"; };
+		871E2506219324DD00C42029 /* LabelItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelItem.h; sourceTree = "<group>"; };
+		871E2507219324DD00C42029 /* LabelItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelItem.m; sourceTree = "<group>"; };
+		871E2509219324FF00C42029 /* ArrowItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrowItem.h; sourceTree = "<group>"; };
+		871E250A219324FF00C42029 /* ArrowItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrowItem.m; sourceTree = "<group>"; };
+		871E250C2193251C00C42029 /* SwitchItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwitchItem.h; sourceTree = "<group>"; };
+		871E250D2193251C00C42029 /* SwitchItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchItem.m; sourceTree = "<group>"; };
+		871E250F2193258000C42029 /* BadgeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeView.h; sourceTree = "<group>"; };
+		871E25102193258000C42029 /* BadgeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeView.m; sourceTree = "<group>"; };
+		871E25122193374E00C42029 /* RootTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
+		871E25132193374E00C42029 /* RootTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
+		871E251521933A8500C42029 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		871E251621933A8500C42029 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		87229DF321789D7000DF2355 /* ControllerTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControllerTool.h; sourceTree = "<group>"; };
 		87229DF421789D7000DF2355 /* ControllerTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ControllerTool.m; sourceTree = "<group>"; };
 		87229DF62178A34600DF2355 /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -185,6 +213,8 @@
 		8743F54C218B23D300B425FA /* EmotionToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmotionToolbar.m; sourceTree = "<group>"; };
 		8743F54E218B286F00B425FA /* Emotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Emotion.h; sourceTree = "<group>"; };
 		8743F54F218B286F00B425FA /* Emotion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
+		8779D9832193C4BF00A98D65 /* GeneralSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneralSettingViewController.h; sourceTree = "<group>"; };
+		8779D9842193C4BF00A98D65 /* GeneralSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneralSettingViewController.m; sourceTree = "<group>"; };
 		877E1A7321873C160089BEE9 /* BaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseManager.h; sourceTree = "<group>"; };
 		877E1A7421873C160089BEE9 /* BaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseManager.m; sourceTree = "<group>"; };
 		877E1A7621873EE70089BEE9 /* BaseParam.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseParam.h; sourceTree = "<group>"; };
@@ -259,6 +289,10 @@
 			children = (
 				8736B13A216F49CD00ACBC88 /* JRTabBar.h */,
 				8736B13B216F49CD00ACBC88 /* JRTabBar.m */,
+				871E250221930BE600C42029 /* CommonTableViewCell.h */,
+				871E250321930BE600C42029 /* CommonTableViewCell.m */,
+				871E250F2193258000C42029 /* BadgeView.h */,
+				871E25102193258000C42029 /* BadgeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +385,23 @@
 				871896062173122900AF0F99 /* MBProgressHUD+MJ.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		871E25052193244900C42029 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				871E24FF21930ACA00C42029 /* TableGroup.h */,
+				871E250021930ACA00C42029 /* TableGroup.m */,
+				871E24FC21930AB000C42029 /* TableItem.h */,
+				871E24FD21930AB000C42029 /* TableItem.m */,
+				871E2506219324DD00C42029 /* LabelItem.h */,
+				871E2507219324DD00C42029 /* LabelItem.m */,
+				871E2509219324FF00C42029 /* ArrowItem.h */,
+				871E250A219324FF00C42029 /* ArrowItem.m */,
+				871E250C2193251C00C42029 /* SwitchItem.h */,
+				871E250D2193251C00C42029 /* SwitchItem.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		87229DF221789D2600DF2355 /* Tool */ = {
@@ -495,6 +546,7 @@
 		87EFFCF521796454005FF86E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				871E25052193244900C42029 /* Cell */,
 				877E1A7621873EE70089BEE9 /* BaseParam.h */,
 				877E1A7721873EE70089BEE9 /* BaseParam.m */,
 				87229DF62178A34600DF2355 /* Account.h */,
@@ -565,6 +617,8 @@
 				87FC6522216DCA860038B159 /* RootTabBarController.m */,
 				87FC6536216DE0CD0038B159 /* RootNavigationViewController.h */,
 				87FC6537216DE0CD0038B159 /* RootNavigationViewController.m */,
+				871E25122193374E00C42029 /* RootTableViewController.h */,
+				871E25132193374E00C42029 /* RootTableViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -597,6 +651,10 @@
 			children = (
 				87FC6533216DDF570038B159 /* ProfileViewController.h */,
 				87FC6534216DDF570038B159 /* ProfileViewController.m */,
+				871E251521933A8500C42029 /* SettingViewController.h */,
+				871E251621933A8500C42029 /* SettingViewController.m */,
+				8779D9832193C4BF00A98D65 /* GeneralSettingViewController.h */,
+				8779D9842193C4BF00A98D65 /* GeneralSettingViewController.m */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -780,12 +838,17 @@
 				872CA13721896E1900EA5DFA /* StatusToolbar.m in Sources */,
 				8743F541218AD40500B425FA /* MJPhotoToolbar.m in Sources */,
 				87FC653C216DFB6C0038B159 /* UIView+Extension.m in Sources */,
+				871E2508219324DD00C42029 /* LabelItem.m in Sources */,
 				872CA13A21896E3700EA5DFA /* StatusOriginalView.m in Sources */,
+				871E250121930ACA00C42029 /* TableGroup.m in Sources */,
+				871E24FE21930AB000C42029 /* TableItem.m in Sources */,
 				8743F543218AD40500B425FA /* SDWebImageManager+MJ.m in Sources */,
 				8707583E217EB453003F9052 /* StatusManager.m in Sources */,
 				8707585E217ED0B2003F9052 /* AccessTokenParam.m in Sources */,
 				8700F70C21723519002C66E3 /* OAuthViewController.m in Sources */,
+				871E25112193258000C42029 /* BadgeView.m in Sources */,
 				872CA14421897F0600EA5DFA /* StatusDetailFrame.m in Sources */,
+				871E25142193374E00C42029 /* RootTableViewController.m in Sources */,
 				87229DFB2178A71100DF2355 /* AccountManager.m in Sources */,
 				870BF8E52179FDCF001482BE /* Photo.m in Sources */,
 				87FC6523216DCA860038B159 /* RootTabBarController.m in Sources */,
@@ -801,6 +864,7 @@
 				8743F550218B286F00B425FA /* Emotion.m in Sources */,
 				87075854217ECEF8003F9052 /* UserManager.m in Sources */,
 				87BA4681217DA8E700B20C8D /* PhotosView.m in Sources */,
+				871E251721933A8500C42029 /* SettingViewController.m in Sources */,
 				877E1A7E218743E80089BEE9 /* UnreadCountResult.m in Sources */,
 				870BF8DF2179E256001482BE /* User.m in Sources */,
 				8743F542218AD40500B425FA /* MJPhotoView.m in Sources */,
@@ -818,10 +882,13 @@
 				8743F53C218AD40500B425FA /* MJPhoto.m in Sources */,
 				8736B136216F19E800ACBC88 /* JRTitleButton.m in Sources */,
 				87FC6538216DE0CD0038B159 /* RootNavigationViewController.m in Sources */,
+				871E250E2193251C00C42029 /* SwitchItem.m in Sources */,
 				8736B140216F7ECE00ACBC88 /* NewFeatureViewController.m in Sources */,
 				8743F53F218AD40500B425FA /* MJPhotoLoadingView.m in Sources */,
+				8779D9852193C4BF00A98D65 /* GeneralSettingViewController.m in Sources */,
 				87229DF521789D7000DF2355 /* ControllerTool.m in Sources */,
 				8743F54A218AF85000B425FA /* EmotionListView.m in Sources */,
+				871E250421930BE600C42029 /* CommonTableViewCell.m in Sources */,
 				87FC6535216DDF570038B159 /* ProfileViewController.m in Sources */,
 				877E1A7B218743D00089BEE9 /* UnreadCountParam.m in Sources */,
 				87FC6509216DC9170038B159 /* AppDelegate.m in Sources */,
@@ -840,6 +907,7 @@
 				87BA467E217D75C800B20C8D /* ComposeToolbar.m in Sources */,
 				870BF8DB2179D140001482BE /* Foundation+Log.m in Sources */,
 				872CA13121896DA100EA5DFA /* StatusCell.m in Sources */,
+				871E250B219324FF00C42029 /* ArrowItem.m in Sources */,
 				8707585B217ED056003F9052 /* SendStatusResult.m in Sources */,
 				87FC652C216DDF240038B159 /* HomeViewController.m in Sources */,
 				872CA14D2189D9AC00EA5DFA /* NSDate+MJ.m in Sources */,

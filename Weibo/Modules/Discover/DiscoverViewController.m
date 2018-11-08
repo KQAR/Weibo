@@ -8,6 +8,12 @@
 
 #import "DiscoverViewController.h"
 #import "JRSearchBar.h"
+#import "TableGroup.h"
+#import "TableItem.h"
+//#import "CommonTableViewCell.h"
+#import "ArrowItem.h"
+#import "SwitchItem.h"
+#import "LabelItem.h"
 
 @interface DiscoverViewController ()
 
@@ -29,74 +35,71 @@
     JRSearchBar *searchBar = [JRSearchBar searchBar];
     searchBar.width = 300;
     searchBar.height = 30;
-    
     self.navigationItem.titleView = searchBar;
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    // 初始化模型数据
+    [self setupGroups];
+}
+
+#pragma mark -  初始化模型数据
+
+- (void)setupGroups
+{
+    [self setupGroup0];
+    [self setupGroup1];
+    [self setupGroup2];
+}
+
+- (void)setupGroup0
+{
+    // 1.创建组
+    TableGroup *group = [TableGroup group];
+    [self.groups addObject:group];
     
-    return cell;
+    // 2.设置组的基本数据
+    group.header = @"第0组头部";
+    group.footer = @"第0组尾部的详细信息";
+    
+    // 3.设置组的所有行数据
+    ArrowItem *hotStatus = [ArrowItem itemWithTitle:@"热门微博" icon:@"hot_status"];
+    hotStatus.subtitle = @"笑话，娱乐，神最右都搬到这啦";
+    
+    ArrowItem *findPeople = [ArrowItem itemWithTitle:@"找人" icon:@"find_people"];
+    findPeople.subtitle = @"名人、有意思的人尽在这里";
+    
+    group.items = @[hotStatus, findPeople];
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)setupGroup1
+{
+    // 1.创建组
+    TableGroup *group = [TableGroup group];
+    [self.groups addObject:group];
+    
+    // 2.设置组的所有行数据
+    ArrowItem *gameCenter = [ArrowItem itemWithTitle:@"游戏中心" icon:@"game_center"];
+    ArrowItem *near = [ArrowItem itemWithTitle:@"周边" icon:@"near"];
+    ArrowItem *app = [ArrowItem itemWithTitle:@"应用" icon:@"app"];
+    
+    group.items = @[gameCenter, near, app];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)setupGroup2
+{
+    // 1.创建组
+    TableGroup *group = [TableGroup group];
+    [self.groups addObject:group];
+    
+    // 2.设置组的所有行数据
+    ArrowItem *video = [ArrowItem itemWithTitle:@"视频" icon:@"video"];
+    ArrowItem *music = [ArrowItem itemWithTitle:@"音乐" icon:@"music"];
+    ArrowItem *movie = [ArrowItem itemWithTitle:@"电影" icon:@"movie"];
+    ArrowItem *cast = [ArrowItem itemWithTitle:@"播客" icon:@"cast"];
+    LabelItem *more = [LabelItem itemWithTitle:@"更多" icon:@"more"];
+    cast.badgeValue = @"998";
+    more.text = @"哈哈哈";
+    
+    group.items = @[video, music, movie, cast, more];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
